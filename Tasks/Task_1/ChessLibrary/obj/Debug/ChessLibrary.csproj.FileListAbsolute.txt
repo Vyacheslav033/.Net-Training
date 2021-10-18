@@ -1,0 +1,6 @@
+D:\C#\.Net-Training\Tasks\Task_1\ChessLibrary\bin\Debug\ChessLibrary.dll
+D:\C#\.Net-Training\Tasks\Task_1\ChessLibrary\bin\Debug\ChessLibrary.pdb
+D:\C#\.Net-Training\Tasks\Task_1\ChessLibrary\obj\Debug\ChessLibrary.csproj.AssemblyReference.cache
+D:\C#\.Net-Training\Tasks\Task_1\ChessLibrary\obj\Debug\ChessLibrary.csproj.CoreCompileInputs.cache
+D:\C#\.Net-Training\Tasks\Task_1\ChessLibrary\obj\Debug\ChessLibrary.dll
+D:\C#\.Net-Training\Tasks\Task_1\ChessLibrary\obj\Debug\ChessLibrary.pdb
