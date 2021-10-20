@@ -8,50 +8,50 @@ namespace ChessLibrary.Board
     /// </summary>
     public class Position
     {
-        private string vertical;
+        private string y;
 
-        private int horizontal;
+        private int x;
 
         /// <summary>
         /// Инициализатор класса Position.
         /// </summary>
-        /// <param name="vertical"> Позиция по вертикали. </param>
-        /// <param name="horizontal"> Позиция по горизонтали. </param>
-        public Position(string vertical, int horizontal)
+        /// <param name="y"> Позиция по вертикали. </param>
+        /// <param name="x"> Позиция по горизонтали. </param>
+        public Position(string y, int x)
         {
-            if (vertical.Length != 1)
+            if (y.Length != 1)
             {
                 throw new ArgumentException("Позиция по вертикали задана в неправильном формате.");
             }
 
-            if (!Regex.Match(vertical, @"[a-hA-H]").Success)
+            if (!Regex.Match(y, @"[a-hA-H]").Success)
             {
                 throw new ArgumentException("Позиция по вертикали выходит за диапозон A-H.");
             }
 
-            if (horizontal < 1 || horizontal > 8)
+            if (x < 1 || x > 8)
             {
                 throw new ArgumentException("Позиция по горизонтали выходит за диапозон 1-8.");
             }
 
-            this.vertical = vertical.ToUpper();
-            this.horizontal = horizontal;
+            this.y = y.ToUpper();
+            this.x = x;
         }
 
         /// <summary>
         /// Позиция по вертикали.
         /// </summary>
-        public string Vertical
+        public string Y
         {   
-            get { return vertical; }
+            get { return y; }
         }
 
         /// <summary>
         /// Позиция по горизонтали.
         /// </summary>
-        public int Horizontal
+        public int X
         {
-            get { return horizontal; }
+            get { return x; }
         }
 
         /// <summary>
@@ -61,16 +61,14 @@ namespace ChessLibrary.Board
         /// <returns> Результат сравнения. </returns>
         public override bool Equals(object obj)
         {
-            if ((obj == null) || (this.GetType() != obj.GetType()))
+            if (obj is Position)
             {
-                return false;
-            }
-            else
-            {
-                Position p = (Position)obj;
+                Position pos = (Position)obj;
 
-                return (vertical == p.vertical) && (horizontal == p.horizontal);
+                return (this.x == pos.x) && (this.y == pos.y);
             }
+
+            return false;             
         }
 
         public override int GetHashCode()
@@ -78,9 +76,13 @@ namespace ChessLibrary.Board
             return base.GetHashCode();
         }
 
+        /// <summary>
+        /// Вывод позиции в строковом представлении.
+        /// </summary>
+        /// <returns> Позиция на шахматной доске. </returns>
         public override string ToString()
         {
-            return $"Position = {vertical}{horizontal}";
+            return $"{y}{x}";
         }
     }
 }
