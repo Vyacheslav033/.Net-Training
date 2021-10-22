@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using ChessLibrary.Pieces;
-using ChessLibrary.Board;
 
-namespace ChessLibrary.Players
+namespace ChessLibrary
 {
     /// <summary>
     /// Игрок.
@@ -25,7 +23,7 @@ namespace ChessLibrary.Players
         /// </summary>
         /// <param name="searchPiece"> Фигура для поиска. </param>
         /// <returns> Возвращает номер фигуры в списе, в случае отсутсвии фигуры возвращает -1.</returns>
-        public int GetPieceId(Piece searchPiece)
+        private int GetPieceId(Piece searchPiece)
         {
             for (var i = 0; i < pieces.Count; i++)
             {

@@ -41,8 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Board\Board.cs" />
+    <Compile Include="Board\CheesBoard.cs" />
     <Compile Include="Board\Position.cs" />
+    <Compile Include="Enum\VerticalPosition.cs" />
+    <Compile Include="Enum\PieceColor.cs" />
     <Compile Include="Game\Game.cs" />
     <Compile Include="Pieces\Bishop.cs" />
     <Compile Include="Pieces\King.cs" />

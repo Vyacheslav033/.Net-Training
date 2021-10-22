@@ -1,64 +1,64 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace ChessLibrary.Board
+namespace ChessLibrary
 {
     /// <summary>
     /// Позиция на шахматной доске.
     /// </summary>
     public class Position
     {
-        private string y;
+        private string x;
 
-        private int x;
+        private int y;
 
         /// <summary>
         /// Инициализатор класса Position.
         /// </summary>
-        /// <param name="y"> Позиция по вертикали. </param>
         /// <param name="x"> Позиция по горизонтали. </param>
-        public Position(string y, int x)
+        /// <param name="y"> Позиция по вертикали. </param>
+        public Position(string x, int y)
         {
-            if (y.Length != 1)
+            if (x.Length != 1)
             {
-                throw new ArgumentException("Позиция по вертикали задана в неправильном формате.");
+                throw new ArgumentException("Позиция по горизонтали задана в неправильном формате.");
             }
 
-            if (!Regex.Match(y, @"[a-hA-H]").Success)
+            if (!Regex.Match(x, @"[a-hA-H]").Success)
             {
-                throw new ArgumentException("Позиция по вертикали выходит за диапозон A-H.");
+                throw new ArgumentException("Позиция по горизонтали выходит за диапозон A-H.");
             }
 
-            if (x < 1 || x > 8)
+            if (y < 1 || y > 8)
             {
-                throw new ArgumentException("Позиция по горизонтали выходит за диапозон 1-8.");
+                throw new ArgumentException("Позиция по вертикали выходит за диапозон 1-8.");
             }
 
-            this.y = y.ToUpper();
-            this.x = x;
-        }
-
-        /// <summary>
-        /// Позиция по вертикали.
-        /// </summary>
-        public string Y
-        {   
-            get { return y; }
+            this.x = x.ToUpper();
+            this.y = y;
         }
 
         /// <summary>
         /// Позиция по горизонтали.
         /// </summary>
-        public int X
+        public string X
         {
             get { return x; }
         }
 
         /// <summary>
-        /// Сравнение позиций фигур.
+        /// Позиция по вертикали.
+        /// </summary>
+        public int Y
+        {
+            get { return y; }
+        }
+
+        /// <summary>
+        /// Сравнение позиций фигур на равенство.
         /// </summary>
         /// <param name="obj"> Сравниваемый объект. </param>
-        /// <returns> Результат сравнения. </returns>
+        /// <returns> Возвращает true в случае равенства позиций, в противном случае false. </returns>
         public override bool Equals(object obj)
         {
             if (obj is Position)
@@ -82,7 +82,7 @@ namespace ChessLibrary.Board
         /// <returns> Позиция на шахматной доске. </returns>
         public override string ToString()
         {
-            return $"{y}{x}";
+            return $"{x}{y}";
         }
     }
 }

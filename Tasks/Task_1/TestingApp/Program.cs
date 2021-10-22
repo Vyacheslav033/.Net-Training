@@ -1,8 +1,5 @@
 ﻿using System;
-using ChessLibrary.Board;
-using ChessLibrary.Pieces;
-using ChessLibrary.Players;
-using ChessLibrary.Game;
+using ChessLibrary;
 
 namespace TestingApp
 {
@@ -10,27 +7,21 @@ namespace TestingApp
     {
         static void Main(string[] args)
         {
-            var position1 = new Position("e", 1);
-            var position2 = new Position("e", 8);
-
-            var piece1 = new Queen(position1);
-            var piece2 = new Bishop(position1);
-
-            //Console.WriteLine(piece1.Equals(piece2).ToString());
-
+            var bp = new BlackPlayer();
             //var wp = new WhitePlayer();
-            //var list = wp.Pieces;
-
-            //foreach (Piece piece in list)
-            //{
-            //    Console.WriteLine(piece);
-            //}
 
             //var game = new Game(ref wp, ref bp);
 
-            //Console.WriteLine(game.Start());
+            //game.Start();
+
+            var pieces = bp.Pieces;
 
 
+            var p1 = new Pawn(new Position("a", 4), PieceColor.Black);
+            var p2 = new Pawn(new Position("a", 4), PieceColor.Black);
+
+            Console.WriteLine(p1.Equals(p2));
+            //Console.WriteLine(df.Color);
 
 
             Console.ReadLine();

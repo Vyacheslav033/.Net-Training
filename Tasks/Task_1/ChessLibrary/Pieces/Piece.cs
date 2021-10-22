@@ -1,7 +1,6 @@
 ﻿using System;
-using ChessLibrary.Board;
 
-namespace ChessLibrary.Pieces
+namespace ChessLibrary
 {
     /// <summary>
     /// Шахматная фигура.
@@ -10,13 +9,17 @@ namespace ChessLibrary.Pieces
     {
         private Position position;
 
+        private readonly PieceColor color;
+
         /// <summary>
         /// Инициализатор класса Piece.
         /// </summary>
         /// <param name="position"> Позиция фигуры. </param>
-        public Piece(Position position)
+        /// <param name="color"> Цвет фигуры. </param>
+        public Piece(Position position, PieceColor color)
         {
             this.position = position;
+            this.color = color;
         }
 
         /// <summary>
@@ -29,17 +32,25 @@ namespace ChessLibrary.Pieces
         }
 
         /// <summary>
+        /// Цвет фигуры.
+        /// </summary>
+        public PieceColor Color
+        {
+            get { return color; }
+        }
+
+        /// <summary>
         /// Сравнение фигур на равенство.
         /// </summary>
         /// <param name="obj"> Сравниваемый объект. </param>
-        /// <returns> Результат сравнения. </returns>
+        /// <returns> Возвращает true в случае равенства фигур, в противном случае false. </returns>
         public override bool Equals(object obj)
         {
             if (this.GetType() == obj.GetType())
             {
                 Piece piece = (Piece)obj;
 
-                return this.position.Equals(piece.Position);
+                return this.position.Equals(piece.Position) && (this.color == piece.color);
             }
 
             return false;

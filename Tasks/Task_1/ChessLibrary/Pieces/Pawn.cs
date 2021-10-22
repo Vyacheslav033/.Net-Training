@@ -1,7 +1,6 @@
 ﻿using System;
-using ChessLibrary.Board;
 
-namespace ChessLibrary.Pieces
+namespace ChessLibrary
 {
     /// <summary>
     /// Пешка
@@ -12,7 +11,8 @@ namespace ChessLibrary.Pieces
         /// Инициализатор класса Pawn.
         /// </summary>
         /// <param name="position"> Позиция фигуры. </param>
-        public Pawn(Position position) : base (position)
-        { }
+        /// <param name="color"> Цвет фигуры. </param>
+        public Pawn(Position position, PieceColor color) : base (position, color)
+        { } 
     }
 }

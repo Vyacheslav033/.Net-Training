@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ChessLibrary.Players;
 
-namespace ChessLibrary.Game
+namespace ChessLibrary
 {
     /// <summary>
     /// Реализация шахматной игры.
@@ -28,6 +27,23 @@ namespace ChessLibrary.Game
             playerWithMove = typeof(WhitePlayer);
             this.whitePlayer = whitePlayer;
             this.blackPlayer = blackPlayer;
+        }
+
+
+        public void Start()
+        {
+            if (playerWithMove == whitePlayer.GetType())
+            {
+                whitePlayer.Motion();
+
+                playerWithMove = typeof(BlackPlayer);
+            }
+            else
+            {
+                blackPlayer.Motion();
+
+                playerWithMove = typeof(WhitePlayer);
+            }
         }
     }
 }
