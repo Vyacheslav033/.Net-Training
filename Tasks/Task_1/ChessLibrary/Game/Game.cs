@@ -34,14 +34,10 @@ namespace ChessLibrary
         {
             if (playerWithMove == whitePlayer.GetType())
             {
-                whitePlayer.Motion();
-
                 playerWithMove = typeof(BlackPlayer);
             }
             else
             {
-                blackPlayer.Motion();
-
                 playerWithMove = typeof(WhitePlayer);
             }
         }

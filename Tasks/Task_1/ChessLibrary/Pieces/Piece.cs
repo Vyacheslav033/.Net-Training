@@ -62,12 +62,12 @@ namespace ChessLibrary
         }
 
         /// <summary>
-        /// Информация о фигуре.
+        /// Название фигуры.
         /// </summary>
-        /// <returns> Название и позиция фигуры. </returns>
+        /// <returns> Название фигуры. </returns>
         public override string ToString()
         {
-            return $"{this.GetType().Name} - {position}";
+            return $"{this.GetType().Name[0]}";
         }
     }
 }
