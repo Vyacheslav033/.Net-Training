@@ -22,14 +22,18 @@ namespace TestingApp
         static void OutputBoard(CheesBoard cheesBoard)
         {
             Console.BackgroundColor = ConsoleColor.DarkYellow;
-
+            
             var board = cheesBoard.Board;
-
             int rows = board.GetUpperBound(0) + 1;
             int columns = board.Length / rows;
 
+            var positionY = new string[] { "a", "b", "c", "d", "e", "f", "g", "h" };
+
             for (int i = 0; i < rows; i++)
             {
+                Console.ForegroundColor = ConsoleColor.DarkBlue;
+                Console.Write(positionY[i].ToUpper());
+
                 for (int j = 0; j < columns; j++)
                 {
                     Console.ForegroundColor = ConsoleColor.DarkRed;
@@ -51,11 +55,19 @@ namespace TestingApp
                         }
 
                         Console.Write($"[{board[j, i]}] ");
-                    }
+                    }      
                 }
-
-                Console.WriteLine();
+                    Console.WriteLine();         
             }
+
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+
+            for (int i = 0; i < rows; i++)
+            {
+                Console.Write($"  {i + 1} ");
+            }
+
+            Console.Write(" ");
         }
     }
 }

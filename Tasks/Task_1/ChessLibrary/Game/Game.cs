@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ChessLibrary
 {
@@ -11,10 +7,10 @@ namespace ChessLibrary
     /// </summary>
     public class Game
     {
+        private CheesBoard cheesBoard;
         private WhitePlayer whitePlayer;
         private BlackPlayer blackPlayer;
-        private Type playerWithMove;
-        private bool isGame;
+        private PieceColor playerWithMove;
 
         /// <summary>
         /// Инициализатор класса Game.
@@ -23,23 +19,28 @@ namespace ChessLibrary
         /// <param name="blackPlayer"> Игрок за чёрных. </param>
         public Game(ref WhitePlayer whitePlayer, ref BlackPlayer blackPlayer)
         {
-            isGame = true;
-            playerWithMove = typeof(WhitePlayer);
+            cheesBoard = new CheesBoard();
+
             this.whitePlayer = whitePlayer;
             this.blackPlayer = blackPlayer;
+
+            playerWithMove = PieceColor.White;            
         }
 
-
-        public void Start()
+        /// <summary>
+        /// Ход.
+        /// </summary>
+        /// <param name="piece"> Фигура которая ходит. </param>
+        /// <param name="movePosition"> Желаемая позиция фигуры. </param>
+        /// <returns> Возвражает true если ход возможен, в случае хода в не очереди или невозможности хода false. </returns>
+        public bool Move(Piece piece, Position movePosition)
         {
-            if (playerWithMove == whitePlayer.GetType())
+            if (piece.Color == playerWithMove)
             {
-                playerWithMove = typeof(BlackPlayer);
+                return cheesBoard.CanMove(piece, movePosition);
             }
-            else
-            {
-                playerWithMove = typeof(WhitePlayer);
-            }
-        }
+
+            return false;
+        }    
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ChessLibrary
 {
@@ -33,41 +34,32 @@ namespace ChessLibrary
         /// </summary>
         private void ArrangePieces()
         {
-            // Белые фигуры.
-            SetPiece(new Rook(new Position("a", 1), PieceColor.White));
-            SetPiece(new Knight(new Position("b", 1), PieceColor.White));
-            SetPiece(new Bishop(new Position("c", 1), PieceColor.White));
-            SetPiece(new King(new Position("d", 1), PieceColor.White));
-            SetPiece(new Queen(new Position("e", 1), PieceColor.White));
-            SetPiece(new Bishop(new Position("f", 1), PieceColor.White));
-            SetPiece(new Knight(new Position("g", 1), PieceColor.White));
-            SetPiece(new Rook(new Position("h", 1), PieceColor.White));
-            SetPiece(new Pawn(new Position("a", 2), PieceColor.White));
-            SetPiece(new Pawn(new Position("b", 2), PieceColor.White));
-            SetPiece(new Pawn(new Position("c", 2), PieceColor.White));
-            SetPiece(new Pawn(new Position("d", 2), PieceColor.White));
-            SetPiece(new Pawn(new Position("e", 2), PieceColor.White));
-            SetPiece(new Pawn(new Position("f", 2), PieceColor.White));
-            SetPiece(new Pawn(new Position("g", 2), PieceColor.White));
-            SetPiece(new Pawn(new Position("h", 2), PieceColor.White));
+            var row = 1;
+            var color = PieceColor.White;
+            var positionY = new string[] {"a", "b", "c", "d", "e", "f", "g", "h" };
+                
+            // Расставляем все фигуры, кроме пешек.
+            for (var i = 0; i < 2; i++)
+            {              
+                SetPiece(new Rook(new Position("a", row), color));
+                SetPiece(new Knight(new Position("b", row), color));
+                SetPiece(new Bishop(new Position("c", row), color));
+                SetPiece(new King(new Position("d", row), color));
+                SetPiece(new Queen(new Position("e", row), color));
+                SetPiece(new Bishop(new Position("f", row), color));
+                SetPiece(new Knight(new Position("g", row), color));
+                SetPiece(new Rook(new Position("h", row), color));
 
-            // Чёрные фигуры.
-            SetPiece(new Rook(new Position("a", 8), PieceColor.Black));
-            SetPiece(new Knight(new Position("b", 8), PieceColor.Black));
-            SetPiece(new Bishop(new Position("c", 8), PieceColor.Black));
-            SetPiece(new King(new Position("d", 8), PieceColor.Black));
-            SetPiece(new Queen(new Position("e", 8), PieceColor.Black));
-            SetPiece(new Bishop(new Position("f", 8), PieceColor.Black));
-            SetPiece(new Knight(new Position("g", 8), PieceColor.Black));
-            SetPiece(new Rook(new Position("h", 8), PieceColor.Black));
-            SetPiece(new Pawn(new Position("a", 7), PieceColor.Black));
-            SetPiece(new Pawn(new Position("b", 7), PieceColor.Black));
-            SetPiece(new Pawn(new Position("c", 7), PieceColor.Black));
-            SetPiece(new Pawn(new Position("d", 7), PieceColor.Black));
-            SetPiece(new Pawn(new Position("e", 7), PieceColor.Black));
-            SetPiece(new Pawn(new Position("f", 7), PieceColor.Black));
-            SetPiece(new Pawn(new Position("g", 7), PieceColor.Black));
-            SetPiece(new Pawn(new Position("h", 7), PieceColor.Black));
+                row = 8;
+                color = PieceColor.Black;
+            }
+
+            // Расставляем пешки.
+            for (var i = 0; i < positionY.Length; i++)
+            {
+                SetPiece(new Pawn(new Position(positionY[i], 2), PieceColor.White));
+                SetPiece(new Pawn(new Position(positionY[i], 7), PieceColor.Black));
+            }           
         }
 
         /// <summary>
@@ -81,6 +73,57 @@ namespace ChessLibrary
             int y = piece.Position.Y - 1;
 
             board[x, y] = piece;            
+        }
+
+        /// <summary>
+        /// Поиск фигуры на доске.
+        /// </summary>
+        /// <param name="searchPiece"> Фигура для поиска. </param>
+        /// <returns> Возвращает true если фигура существует, в противном случае false.</returns>
+        private bool PieceSearch(Piece searchPiece)
+        {
+            foreach (Piece piece in Board)
+            {
+                if (piece.Equals(searchPiece))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Проверка на возможность хода.
+        /// </summary>
+        /// <param name="piece"> Фигура которая ходит. </param>
+        /// <param name="movePosition"> Желаемая позиция фигуры. </param>
+        /// <returns></returns>
+        public bool CanMove(Piece piece, Position movePosition)
+        {
+            // Реализовать!
+
+            return false;
+        }
+
+        /// <summary>
+        /// Получение списка фигур заданного цвета. 
+        /// </summary>
+        /// <param name="color"> Цвет фигур. </param>
+        /// <returns> Список фигур. </returns>
+        public List<Piece> GetPieces(PieceColor color)
+        {
+            var pieces = new List<Piece>();
+
+            foreach (Piece piece in Board)
+            {
+                if (piece.Color == color)
+                {
+                    pieces.Add(piece);
+                }
+            }
+
+            return pieces;
         }
     }
 }
