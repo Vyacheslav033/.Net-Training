@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ChessLibrary
 {
@@ -20,7 +21,7 @@ namespace ChessLibrary
         {
             this.position = position;
             this.color = color;
-        }
+        }      
 
         /// <summary>
         /// Позиция фигуры.
@@ -58,7 +59,7 @@ namespace ChessLibrary
 
         public override int GetHashCode()
         {
-            return base.GetHashCode();      
+            return base.GetHashCode();
         }
 
         /// <summary>
@@ -67,7 +68,7 @@ namespace ChessLibrary
         /// <returns> Название фигуры. </returns>
         public override string ToString()
         {
-            return $"{this.GetType().Name[0]}";
+            return $"{this.GetType().Name} ({position}, {color})";
         }
     }
 }

@@ -9,6 +9,7 @@ namespace ChessLibrary
     public class CheesBoard
     {
         private Piece[,] board;
+
         private const int dimension = 8;
 
         /// <summary>
@@ -22,7 +23,7 @@ namespace ChessLibrary
         }
 
         /// <summary>
-        /// Доска.
+        /// Шахматная доска.
         /// </summary>
         public Piece[,] Board
         {
@@ -68,23 +69,22 @@ namespace ChessLibrary
         /// <param name="piece"> Фигура. </param>
         private void SetPiece(Piece piece)
         {
-            // !!!
-            int x = (int) Enum.Parse(typeof(VerticalPosition), piece.Position.X);
-            int y = piece.Position.Y - 1;
+            int row = Convert.ToRowValue(piece.Position);
+            int column = Convert.ToColumnValue(piece.Position);
 
-            board[x, y] = piece;            
+            board[row, column] = piece;            
         }
 
         /// <summary>
-        /// Поиск фигуры на доске.
+        /// Проверка на существовании фигуры на доске.
         /// </summary>
         /// <param name="searchPiece"> Фигура для поиска. </param>
         /// <returns> Возвращает true если фигура существует, в противном случае false.</returns>
-        private bool PieceSearch(Piece searchPiece)
+        private bool SearchPiece(Piece searchPiece)
         {
             foreach (Piece piece in Board)
             {
-                if (piece.Equals(searchPiece))
+                if ( (piece != null) && (piece.Equals(searchPiece)) )
                 {
                     return true;
                 }
@@ -94,15 +94,22 @@ namespace ChessLibrary
         }
 
         /// <summary>
-        /// Проверка на возможность хода.
+        /// Удаление фигуры с доски.
         /// </summary>
-        /// <param name="piece"> Фигура которая ходит. </param>
-        /// <param name="movePosition"> Желаемая позиция фигуры. </param>
-        /// <returns></returns>
-        public bool CanMove(Piece piece, Position movePosition)
+        /// <param name="searchPiece"> Удаляемая фигура. </param>
+        /// <returns> Возвращает true в случае удаления фигуры, в противном случае false. </returns>
+        public bool RemovePiece(Piece searchPiece)
         {
-            // Реализовать!
+            if (SearchPiece(searchPiece))
+            {
+                int row = Convert.ToRowValue(searchPiece.Position);
+                int column = Convert.ToColumnValue(searchPiece.Position);
 
+                board[row, column] = null;
+
+                return true;
+            }
+            
             return false;
         }
 
@@ -117,7 +124,7 @@ namespace ChessLibrary
 
             foreach (Piece piece in Board)
             {
-                if (piece.Color == color)
+                if ( (piece != null) && (piece.Color == color) )
                 {
                     pieces.Add(piece);
                 }

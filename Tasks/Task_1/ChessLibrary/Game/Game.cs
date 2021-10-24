@@ -8,8 +8,13 @@ namespace ChessLibrary
     public class Game
     {
         private CheesBoard cheesBoard;
+
+        private CheesRules rules;
+
         private WhitePlayer whitePlayer;
+
         private BlackPlayer blackPlayer;
+
         private PieceColor playerWithMove;
 
         /// <summary>
@@ -20,6 +25,7 @@ namespace ChessLibrary
         public Game(ref WhitePlayer whitePlayer, ref BlackPlayer blackPlayer)
         {
             cheesBoard = new CheesBoard();
+            rules = new CheesRules(cheesBoard);
 
             this.whitePlayer = whitePlayer;
             this.blackPlayer = blackPlayer;
@@ -37,7 +43,7 @@ namespace ChessLibrary
         {
             if (piece.Color == playerWithMove)
             {
-                return cheesBoard.CanMove(piece, movePosition);
+                //return cheesBoard.CanMove(piece, movePosition);
             }
 
             return false;

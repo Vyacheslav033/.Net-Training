@@ -72,7 +72,7 @@ namespace ChessLibrary
         }
 
         public override int GetHashCode()
-        {
+        {       
             return base.GetHashCode();
         }
 
