@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 namespace ChessLibrary
 {
     /// <summary>
-    /// Позиция на шахматной доске.
+    /// Позиция на шахматной доске, клетка.
     /// </summary>
     public class Position
     {
@@ -52,6 +52,24 @@ namespace ChessLibrary
         public int Y
         {
             get { return y; }
+        }
+
+        /// <summary>
+        /// Конвертация горизонтальной позиции на доске в номер ряда в двумерном массиве.
+        /// </summary>
+        /// <returns> Номер ряда. </returns>
+        public int GetRowValue()
+        {
+            return (int)Enum.Parse(typeof(VerticalPosition), x);
+        }
+
+        /// <summary>
+        /// Конвертация вертикальной позиции на доске в номер столбца в двумерном массиве.
+        /// </summary>
+        /// <returns> Номер столбца. </returns>
+        public int GetColumnValue()
+        {
+            return y - 1;
         }
 
         /// <summary>

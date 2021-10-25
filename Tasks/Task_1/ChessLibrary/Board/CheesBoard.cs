@@ -69,8 +69,8 @@ namespace ChessLibrary
         /// <param name="piece"> Фигура. </param>
         private void SetPiece(Piece piece)
         {
-            int row = Convert.ToRowValue(piece.Position);
-            int column = Convert.ToColumnValue(piece.Position);
+            int row = piece.Position.GetRowValue();
+            int column = piece.Position.GetColumnValue();
 
             board[row, column] = piece;            
         }
@@ -102,8 +102,8 @@ namespace ChessLibrary
         {
             if (SearchPiece(searchPiece))
             {
-                int row = Convert.ToRowValue(searchPiece.Position);
-                int column = Convert.ToColumnValue(searchPiece.Position);
+                int row = searchPiece.Position.GetRowValue();
+                int column = searchPiece.Position.GetColumnValue();
 
                 board[row, column] = null;
 
