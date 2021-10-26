@@ -43,7 +43,7 @@ namespace ChessLibrary
         {
             if (piece.Color == playerWithMove)
             {
-                //return cheesBoard.CanMove(piece, movePosition);
+                MoveStatus status =  piece.CheckMove(cheesBoard, movePosition);
             }
 
             return false;

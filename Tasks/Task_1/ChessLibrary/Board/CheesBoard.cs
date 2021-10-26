@@ -23,11 +23,30 @@ namespace ChessLibrary
         }
 
         /// <summary>
-        /// Шахматная доска.
+        /// Индексатор.
         /// </summary>
-        public Piece[,] Board
+        /// <param name="i"> Ряд. </param>
+        /// <param name="j"> Столбец. </param>
+        /// <returns> Фигуру на заданной позиции. </returns>
+        public Piece this[int i, int j]
         {
-            get { return board; }
+            get { return board[i, j]; }
+        }
+
+        /// <summary>
+        /// Количество строк.
+        /// </summary>
+        public int RowsCount
+        {
+            get { return board.GetUpperBound(0) + 1; }
+        }
+
+        /// <summary>
+        /// Количество столбцов.
+        /// </summary>
+        public int ColumnsCount
+        {
+            get { return board.Length / RowsCount; }
         }
 
         /// <summary>
@@ -45,8 +64,8 @@ namespace ChessLibrary
                 SetPiece(new Rook(new Position("a", row), color));
                 SetPiece(new Knight(new Position("b", row), color));
                 SetPiece(new Bishop(new Position("c", row), color));
-                SetPiece(new King(new Position("d", row), color));
-                SetPiece(new Queen(new Position("e", row), color));
+                SetPiece(new King(new Position("e", row), color));
+                SetPiece(new Queen(new Position("d", row), color));
                 SetPiece(new Bishop(new Position("f", row), color));
                 SetPiece(new Knight(new Position("g", row), color));
                 SetPiece(new Rook(new Position("h", row), color));
@@ -69,22 +88,38 @@ namespace ChessLibrary
         /// <param name="piece"> Фигура. </param>
         private void SetPiece(Piece piece)
         {
-            int row = piece.Position.GetRowValue();
-            int column = piece.Position.GetColumnValue();
+            board[piece.Position.Row, piece.Position.Column] = piece;            
+        }
 
-            board[row, column] = piece;            
+        /// <summary>
+        /// Передвинуть фигуру.
+        /// </summary>
+        /// <param name="piece"> Передвигаемая фигура. </param>
+        /// <param name="position"> Новая позиция. </param>
+        /// <returns> Возвращает true если фигура передвинута, в противном случае false. </returns>
+        public bool MovePiece(Piece piece, Position position)
+        {
+            if (SearchPiece(piece))
+            {
+                board[piece.Position.Row, piece.Position.Column] = null;          
+                board[position.Row, position.Column] = piece;
+
+                return true;
+            }
+
+            return false;
         }
 
         /// <summary>
         /// Проверка на существовании фигуры на доске.
         /// </summary>
-        /// <param name="searchPiece"> Фигура для поиска. </param>
+        /// <param name="piece"> Фигура для поиска. </param>
         /// <returns> Возвращает true если фигура существует, в противном случае false.</returns>
-        private bool SearchPiece(Piece searchPiece)
+        private bool SearchPiece(Piece piece)
         {
-            foreach (Piece piece in Board)
+            foreach (Piece p in board)
             {
-                if ( (piece != null) && (piece.Equals(searchPiece)) )
+                if ( (p != null) && (p.Equals(piece)) )
                 {
                     return true;
                 }
@@ -96,16 +131,13 @@ namespace ChessLibrary
         /// <summary>
         /// Удаление фигуры с доски.
         /// </summary>
-        /// <param name="searchPiece"> Удаляемая фигура. </param>
+        /// <param name="piece"> Удаляемая фигура. </param>
         /// <returns> Возвращает true в случае удаления фигуры, в противном случае false. </returns>
-        public bool RemovePiece(Piece searchPiece)
+        public bool RemovePiece(Piece piece)
         {
-            if (SearchPiece(searchPiece))
+            if (SearchPiece(piece))
             {
-                int row = searchPiece.Position.GetRowValue();
-                int column = searchPiece.Position.GetColumnValue();
-
-                board[row, column] = null;
+                board[piece.Position.Row, piece.Position.Column] = null;
 
                 return true;
             }
@@ -122,7 +154,7 @@ namespace ChessLibrary
         {
             var pieces = new List<Piece>();
 
-            foreach (Piece piece in Board)
+            foreach (Piece piece in board)
             {
                 if ( (piece != null) && (piece.Color == color) )
                 {

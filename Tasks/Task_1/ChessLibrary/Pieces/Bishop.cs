@@ -14,5 +14,10 @@ namespace ChessLibrary
         /// <param name="color"> Цвет фигуры. </param>
         public Bishop(Position position, PieceColor color) : base(position, color)
         { }
+
+        public override MoveStatus CheckMove(CheesBoard board, Position pos)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

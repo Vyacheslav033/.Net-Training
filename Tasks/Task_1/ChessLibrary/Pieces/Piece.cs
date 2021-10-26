@@ -8,9 +8,9 @@ namespace ChessLibrary
     /// </summary>
     public abstract class Piece
     {
-        private Position position;
+        protected Position position;
 
-        private readonly PieceColor color;
+        protected readonly PieceColor color;
 
         /// <summary>
         /// Инициализатор класса Piece.
@@ -21,7 +21,15 @@ namespace ChessLibrary
         {
             this.position = position;
             this.color = color;
-        }      
+        }
+
+        /// <summary>
+        /// Проверка хода.
+        /// </summary>
+        /// <param name="board"> Шахматная доска. </param>
+        /// <param name="pos"> Желаемая позиция хода. </param>
+        /// <returns> Возвращает статус данного хода. </returns>
+        public abstract MoveStatus CheckMove(CheesBoard board, Position pos);
 
         /// <summary>
         /// Позиция фигуры.
@@ -68,7 +76,9 @@ namespace ChessLibrary
         /// <returns> Название фигуры. </returns>
         public override string ToString()
         {
-            return $"{this.GetType().Name} ({position}, {color})";
+            return this.GetType().Name[0].ToString();
+
+            // $"{this.GetType().Name} ({position}, {color})";
         }
     }
 }

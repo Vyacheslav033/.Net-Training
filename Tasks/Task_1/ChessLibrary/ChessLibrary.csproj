@@ -42,8 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Board\CheesBoard.cs" />
-    <Compile Include="Board\Convert.cs" />
     <Compile Include="Board\Position.cs" />
+    <Compile Include="Enum\MoveStatus.cs" />
     <Compile Include="Enum\VerticalPosition.cs" />
     <Compile Include="Enum\PieceColor.cs" />
     <Compile Include="Game\CheesRules.cs" />

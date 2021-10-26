@@ -24,18 +24,32 @@ namespace ChessLibrary
                 throw new ArgumentException("Позиция по горизонтали задана в неправильном формате.");
             }
 
-            if (!Regex.Match(x, @"[a-hA-H]").Success)
+            if (CheckPosition(x, y))
             {
-                throw new ArgumentException("Позиция по горизонтали выходит за диапозон A-H.");
+                this.x = x.ToUpper();
+                this.y = y;
+            } 
+        }
+
+        /// <summary>
+        /// Инициализатор класса Position.
+        /// </summary>
+        /// <param name="position"> Позиция на доске в формате "XY". </param>
+        public Position(string position)
+        {
+            string pX = position[0].ToString();
+            int pY = 0;
+
+            if ( (position.Length != 2) || (!Int32.TryParse(position[1].ToString(), out pY)) )
+            {
+                throw new ArgumentException("Позиция на доске задана в неправильном формате.");
             }
 
-            if (y < 1 || y > 8)
+            if (CheckPosition(pX, pY))
             {
-                throw new ArgumentException("Позиция по вертикали выходит за диапозон 1-8.");
-            }
-
-            this.x = x.ToUpper();
-            this.y = y;
+                this.x = pX.ToUpper();
+                this.y = pY;
+            }             
         }
 
         /// <summary>
@@ -53,23 +67,42 @@ namespace ChessLibrary
         {
             get { return y; }
         }
-
+  
         /// <summary>
-        /// Конвертация горизонтальной позиции на доске в номер ряда в двумерном массиве.
+        /// Номер ряда в двумерном массиве.
         /// </summary>
-        /// <returns> Номер ряда. </returns>
-        public int GetRowValue()
+        public int Row
         {
-            return (int)Enum.Parse(typeof(VerticalPosition), x);
+            get { return (int)Enum.Parse(typeof(VerticalPosition), x); }
         }
 
         /// <summary>
-        /// Конвертация вертикальной позиции на доске в номер столбца в двумерном массиве.
+        /// Номер столбца в двумерном массиве.
         /// </summary>
-        /// <returns> Номер столбца. </returns>
-        public int GetColumnValue()
+        public int Column
         {
-            return y - 1;
+            get { return y - 1; }
+        }
+
+        /// <summary>
+        /// Проверка позиции на доске.
+        /// </summary>
+        /// <param name="pX"> Позиция по горизонтали. </param>
+        /// <param name="pY"> Позиция по вертикали. </param>
+        /// <returns> Возвращает true если данная позиция существует, в противном случае false. </returns>
+        private bool CheckPosition(string pX, int pY)
+        {
+            if (!Regex.Match(pX, @"[a-hA-H]").Success)
+            {
+                throw new ArgumentException("Позиция по горизонтали выходит за диапозон A-H.");
+            }
+
+            if (pY < 1 || pY > 8)
+            {
+                throw new ArgumentException("Позиция по вертикали выходит за диапозон 1-8.");
+            }
+
+            return true;
         }
 
         /// <summary>
