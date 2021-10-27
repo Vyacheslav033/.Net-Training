@@ -46,7 +46,9 @@ namespace ChessLibrary
             // Проверка на битьё фигуры.
             if( (cellsCount == 1 * revers) && ( (newPos.Row == position.Row - 1) || (newPos.Row == position.Row + 1) ) )
             {
-                if (BaseCheckMove(board, newPos))
+                Piece p = board[newPos.Row, newPos.Column];
+
+                if ((p != null) && (p.Color != color))
                 {
                     return true;
                 }

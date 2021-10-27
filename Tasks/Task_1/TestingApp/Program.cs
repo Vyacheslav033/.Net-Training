@@ -10,38 +10,15 @@ namespace TestingApp
             var board = new CheesBoard();
        
             var position = new Position[]
-            {
-     
-                // ДЛЯ ЛАДЬИ НА С5
-                new Position("c5"),
-                new Position("c2"),
-                new Position("c6"),
-                new Position("c7"),
-                new Position("c8"),
-                new Position("c4"),
-                new Position("e5"),
-                new Position("a5"),
-                new Position("b5"),
-                new Position("a4"),
-                new Position("d4"),
-                new Position("h4"),
-                new Position("d5"),
-                new Position("e6"),
-                new Position("a5"),
-                new Position("a6"),
-                new Position("c8"),
-                new Position("b8"),
-                new Position("b7"),
-                new Position("c1"),
-                new Position("h5"),
-                new Position("c3"),
-                new Position("c1"),
-
+            {                 
+                new Position("f7"),
+                new Position("f8"),
+                new Position("f5"),
             };
 
-            var piece = new Rook(new Position("c5"), PieceColor.Black);
+            var piece = new Queen(new Position("f3"), PieceColor.White);
 
-            board.MovePiece(new Rook(new Position("a8"), PieceColor.Black), piece.Position);
+            board.MovePiece(new Queen(new Position("d1"), PieceColor.White), piece.Position);
 
             OutputBoard(board);
 

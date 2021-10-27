@@ -23,9 +23,7 @@ namespace ChessLibrary
         /// <returns> Возвращает true если ход возможен, в противном случае false. </returns>
         public override bool CheckMove(CheesBoard board, Position newPos)
         {
-            Piece p = board[newPos.Row, newPos.Column];
-
-            if (p != null && p.Color == color)
+            if ( !BaseCheckMove(board, newPos) )
             {
                 return false;
             }
