@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ChessLibrary
 {
@@ -15,9 +16,10 @@ namespace ChessLibrary
         public Bishop(Position position, PieceColor color) : base(position, color)
         { }
 
-        public override MoveStatus CheckMove(CheesBoard board, Position pos)
+        public override bool CheckMove(CheesBoard board, Position pos)
         {
-            throw new NotImplementedException();
+            
+            return true;
         }
     }
 }

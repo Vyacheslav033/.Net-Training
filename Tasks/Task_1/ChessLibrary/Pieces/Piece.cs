@@ -21,15 +21,7 @@ namespace ChessLibrary
         {
             this.position = position;
             this.color = color;
-        }
-
-        /// <summary>
-        /// Проверка хода.
-        /// </summary>
-        /// <param name="board"> Шахматная доска. </param>
-        /// <param name="pos"> Желаемая позиция хода. </param>
-        /// <returns> Возвращает статус данного хода. </returns>
-        public abstract MoveStatus CheckMove(CheesBoard board, Position pos);
+        } 
 
         /// <summary>
         /// Позиция фигуры.
@@ -47,6 +39,32 @@ namespace ChessLibrary
         {
             get { return color; }
         }
+
+        /// <summary>
+        /// Проверка на то чтобы фигура не ходила на фигуры своего цвета.
+        /// </summary> 
+        /// <param name="board"> Шахматная доска. </param>
+        /// <param name="pos"> Позиция хода. </param>
+        /// <returns> Возвращает true если на заданной позиции стоит фигура противоположенного цвета, в противном случае false. </returns>
+        protected bool BaseCheckMove(CheesBoard board, Position pos)
+        {          
+            Piece p = board[pos.Row, pos.Column];
+
+            if ((p != null) && (p.Color != color))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Проверка хода.
+        /// </summary>
+        /// <param name="board"> Шахматная доска. </param>
+        /// <param name="pos"> Желаемая позиция хода. </param>
+        /// <returns> Возвращает true если ход возможен, в противном случае false. </returns>
+        public abstract bool CheckMove(CheesBoard board, Position pos);
 
         /// <summary>
         /// Сравнение фигур на равенство.

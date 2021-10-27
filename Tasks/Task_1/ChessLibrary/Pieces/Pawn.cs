@@ -24,8 +24,8 @@ namespace ChessLibrary
         /// </summary>
         /// <param name="board"> Шахматная доска. </param>
         /// <param name="pos"> Желаемая позиция хода. </param>
-        /// <returns> Возвращает статус данного хода. </returns>
-        public override MoveStatus CheckMove(CheesBoard board, Position pos)
+        /// <returns> Возвращает true если ход возможен, в противном случае false. </returns>
+        public override bool CheckMove(CheesBoard board, Position pos)
         {
             var possibleСells = (firstMove == true) ? 2 : 1;
             var revers = (color == PieceColor.White) ? 1 : -1;        
@@ -35,22 +35,24 @@ namespace ChessLibrary
             // Проверка на возможность хода по вертикали.
             if ( ( (cellsCount == possibleСells * revers) || (cellsCount == 1 * revers)) && (pos.Row == position.Row))
             {
-                firstMove = false;
-
-                return MoveStatus.Normal;             
-            }
-            // Проверка на битьё фигуры.
-            else if( (cellsCount == 1 * revers) && ( (pos.Row == position.Row - 1) || (pos.Row == position.Row + 1) ) )
-            {
-                Piece p = board[pos.Row, pos.Column];
-
-                if ( (p != null) && (p.Color != color) )
+                if (board[pos.Row, pos.Column] == null)
                 {
-                    return MoveStatus.Beat;
-                }               
+                    firstMove = false;
+
+                    return true;
+                }                
+            }
+
+            // Проверка на битьё фигуры.
+            if( (cellsCount == 1 * revers) && ( (pos.Row == position.Row - 1) || (pos.Row == position.Row + 1) ) )
+            {
+                if (BaseCheckMove(board, pos))
+                {
+                    return true;
+                }
             }
            
-            return MoveStatus.Impossible;
+            return false;
         }      
     }
 }

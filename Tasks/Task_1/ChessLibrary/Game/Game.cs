@@ -43,7 +43,17 @@ namespace ChessLibrary
         {
             if (piece.Color == playerWithMove)
             {
-                MoveStatus status =  piece.CheckMove(cheesBoard, movePosition);
+                bool can =  piece.CheckMove(cheesBoard, movePosition);
+
+                if (can)
+                {
+                    // Добавить сюда проверку по правилам.
+                    cheesBoard.MovePiece(piece, movePosition);
+
+                    
+                }
+
+                playerWithMove = (playerWithMove == PieceColor.White) ? PieceColor.Black : PieceColor.White;
             }
 
             return false;
