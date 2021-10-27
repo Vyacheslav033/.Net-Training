@@ -47,7 +47,7 @@ namespace ChessLibrary
         public int ColumnsCount
         {
             get { return board.Length / RowsCount; }
-        }
+        }  
 
         /// <summary>
         /// Расставить фигуры.

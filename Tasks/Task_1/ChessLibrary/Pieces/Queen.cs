@@ -15,7 +15,7 @@ namespace ChessLibrary
         public Queen(Position position, PieceColor color) : base(position, color)
         { }
 
-        public override bool CheckMove(CheesBoard board, Position pos)
+        public override bool CheckMove(CheesBoard board, Position newPos)
         {
             throw new NotImplementedException();
         }

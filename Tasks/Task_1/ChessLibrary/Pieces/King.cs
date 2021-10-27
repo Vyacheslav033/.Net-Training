@@ -15,19 +15,29 @@ namespace ChessLibrary
         public King(Position position, PieceColor color) : base(position, color)
         { }
 
-        public override bool CheckMove(CheesBoard board, Position pos)
+        /// <summary>
+        /// Проверка хода короля.
+        /// </summary>
+        /// <param name="board"> Шахматная доска. </param>
+        /// <param name="newPos"> Желаемая позиция хода. </param>
+        /// <returns> Возвращает true если ход возможен, в противном случае false. </returns>
+        public override bool CheckMove(CheesBoard board, Position newPos)
         {
-            var revers = (color == PieceColor.White) ? 1 : -1;
+            Piece p = board[newPos.Row, newPos.Column];
 
-            int cellsCountY = pos.Column - position.Column;
-            int cellsCountX = Math.Abs(pos.Row - position.Row);
+            if (p != null && p.Color == color)
+            {
+                return false;
+            }
 
-            // Проверка на возможность хода по вертикали.
-            if ( (cellsCountY == 1 * revers) && (pos.Row == position.Row) )
+            int cellsCountY = Math.Abs(newPos.Column - position.Column);
+            int cellsCountX = Math.Abs(newPos.Row - position.Row);
+
+            if ( (cellsCountY == 1) && (newPos.Row == position.Row) )
             {
                 return true;
             }
-            if ( (cellsCountX == 1) && (pos.Column == position.Column) )
+            if ( (cellsCountX == 1) && (newPos.Column == position.Column) )
             {
                 return true;
             }

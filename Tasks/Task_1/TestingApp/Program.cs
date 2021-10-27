@@ -7,50 +7,45 @@ namespace TestingApp
     {
         static void Main(string[] args)
         {
-            //var board = new CheesBoard();
-            //var whitePlayer = new WhitePlayer();
-            //var blackPlayer = new BlackPlayer();
-
-            //var game = new Game(ref whitePlayer, ref blackPlayer);
-
             var board = new CheesBoard();
        
             var position = new Position[]
             {
-                new Position("b1"),
-                new Position("b2"),
-                new Position("b3"),
-                new Position("b4"),
-                new Position("a1"),
-                new Position("a2"),
-                new Position("a3"),
-                new Position("a4"),
-                new Position("c1"),
+     
+                // ДЛЯ ЛАДЬИ НА С5
+                new Position("c5"),
                 new Position("c2"),
-                new Position("c3"),
+                new Position("c6"),
+                new Position("c7"),
+                new Position("c8"),
                 new Position("c4"),
+                new Position("e5"),
+                new Position("a5"),
+                new Position("b5"),
+                new Position("a4"),
+                new Position("d4"),
+                new Position("h4"),
+                new Position("d5"),
+                new Position("e6"),
+                new Position("a5"),
+                new Position("a6"),
+                new Position("c8"),
+                new Position("b8"),
+                new Position("b7"),
+                new Position("c1"),
+                new Position("h5"),
+                new Position("c3"),
+                new Position("c1"),
+
             };
 
-            //var piece = new Bishop(new Position("f1"), PieceColor.White);
+            var piece = new Rook(new Position("c5"), PieceColor.Black);
 
-            //board.MovePiece(new Pawn(new Position("b7"), PieceColor.Black), new Position("b6"));
-            //board.MovePiece(new Pawn(new Position("c7"), PieceColor.Black), new Position("c5"));
-            //board.MovePiece(new Pawn(new Position("d7"), PieceColor.Black), new Position("d4"));
-            //board.MovePiece(new Pawn(new Position("e7"), PieceColor.Black), new Position("e3"));
-
-            //board.MovePiece(new Bishop(new Position("f1"), PieceColor.Black), new Position("f2"));
-            //board.MovePiece(new Pawn(new Position("h2"), PieceColor.White), new Position("h5"));
-
-            var piece = new King(new Position("b4"), PieceColor.Black);
-
-            board.MovePiece(new King(new Position("e8"), PieceColor.Black), piece.Position);
+            board.MovePiece(new Rook(new Position("a8"), PieceColor.Black), piece.Position);
 
             OutputBoard(board);
 
             Console.WriteLine();
-
-            
-
 
             for (var i = 0; i < position.Length; i++)
             {

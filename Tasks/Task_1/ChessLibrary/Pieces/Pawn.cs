@@ -23,19 +23,19 @@ namespace ChessLibrary
         /// Проверка хода пешки.
         /// </summary>
         /// <param name="board"> Шахматная доска. </param>
-        /// <param name="pos"> Желаемая позиция хода. </param>
+        /// <param name="newPos"> Желаемая позиция хода. </param>
         /// <returns> Возвращает true если ход возможен, в противном случае false. </returns>
-        public override bool CheckMove(CheesBoard board, Position pos)
+        public override bool CheckMove(CheesBoard board, Position newPos)
         {
             var possibleСells = (firstMove == true) ? 2 : 1;
             var revers = (color == PieceColor.White) ? 1 : -1;        
 
-            int cellsCount = pos.Column - position.Column;
+            int cellsCount = newPos.Column - position.Column;
 
             // Проверка на возможность хода по вертикали.
-            if ( ( (cellsCount == possibleСells * revers) || (cellsCount == 1 * revers)) && (pos.Row == position.Row))
+            if ( ( (cellsCount == possibleСells * revers) || (cellsCount == 1 * revers)) && (newPos.Row == position.Row))
             {
-                if (board[pos.Row, pos.Column] == null)
+                if (board[newPos.Row, newPos.Column] == null)
                 {
                     firstMove = false;
 
@@ -44,9 +44,9 @@ namespace ChessLibrary
             }
 
             // Проверка на битьё фигуры.
-            if( (cellsCount == 1 * revers) && ( (pos.Row == position.Row - 1) || (pos.Row == position.Row + 1) ) )
+            if( (cellsCount == 1 * revers) && ( (newPos.Row == position.Row - 1) || (newPos.Row == position.Row + 1) ) )
             {
-                if (BaseCheckMove(board, pos))
+                if (BaseCheckMove(board, newPos))
                 {
                     return true;
                 }

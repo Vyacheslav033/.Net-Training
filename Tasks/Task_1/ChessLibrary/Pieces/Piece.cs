@@ -44,11 +44,11 @@ namespace ChessLibrary
         /// Проверка на то чтобы фигура не ходила на фигуры своего цвета.
         /// </summary> 
         /// <param name="board"> Шахматная доска. </param>
-        /// <param name="pos"> Позиция хода. </param>
+        /// <param name="newPos"> Позиция хода. </param>
         /// <returns> Возвращает true если на заданной позиции стоит фигура противоположенного цвета, в противном случае false. </returns>
-        protected bool BaseCheckMove(CheesBoard board, Position pos)
+        protected bool BaseCheckMove(CheesBoard board, Position newPos)
         {          
-            Piece p = board[pos.Row, pos.Column];
+            Piece p = board[newPos.Row, newPos.Column];
 
             if ((p != null) && (p.Color != color))
             {

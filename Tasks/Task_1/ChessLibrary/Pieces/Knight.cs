@@ -15,9 +15,30 @@ namespace ChessLibrary
         public Knight(Position position, PieceColor color) : base(position, color)
         { }
 
-        public override bool CheckMove(CheesBoard board, Position pos)
+        /// <summary>
+        /// Проверка хода коня.
+        /// </summary>
+        /// <param name="board"> Шахматная доска. </param>
+        /// <param name="newPos"> Желаемая позиция хода. </param>
+        /// <returns> Возвращает true если ход возможен, в противном случае false. </returns>
+        public override bool CheckMove(CheesBoard board, Position newPos)
         {
-            throw new NotImplementedException();
+            Piece p = board[newPos.Row, newPos.Column];
+
+            if (p != null && p.Color == color)
+            {
+                return false;
+            }
+
+            int column = Math.Abs(newPos.Column - position.Column);
+            int row = Math.Abs(newPos.Row - position.Row);
+
+            if (column * row == 2)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }
