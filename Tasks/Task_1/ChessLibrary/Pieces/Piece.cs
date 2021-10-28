@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace ChessLibrary
 {
@@ -17,11 +16,31 @@ namespace ChessLibrary
         /// </summary>
         /// <param name="position"> Позиция фигуры. </param>
         /// <param name="color"> Цвет фигуры. </param>
-        public Piece(Position position, PieceColor color)
+        public Piece (Position position, PieceColor color)
         {
+            if (position == null)
+            {
+                throw new ArgumentNullException("Позиция фигуры является null.");
+            }
+
             this.position = position;
             this.color = color;
-        } 
+        }
+
+        /// <summary>
+        /// Констртуктор копирования класса Piece.
+        /// </summary>
+        /// <param name="piece"></param>
+        public Piece (Piece piece)
+        {
+            if (piece == null)
+            {
+                throw new ArgumentNullException("Фигура является null.");
+            }
+
+            this.position = piece.position;
+            this.color = piece.Color;
+        }
 
         /// <summary>
         /// Позиция фигуры.

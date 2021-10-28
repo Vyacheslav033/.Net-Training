@@ -1,37 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ChessLibrary
 {
-    
+    /// <summary>
+    /// Правила игры в шахматы.
+    /// </summary>
     public class CheesRules
     {
-        private CheesBoard cheesBoard;
-
         /// <summary>
         /// Инициалищатор класса CheesRules.
         /// </summary>
-        /// <param name="cheesBoard"> Шахмотная доска. </param>
-        public CheesRules(CheesBoard cheesBoard)
-        {
-            this.cheesBoard = cheesBoard;
-        }
-
+        public CheesRules() { }
 
         /// <summary>
-        /// Проверка на возможность хода.
+        /// Проверка на возможность хода по правилам и учитывание различных ситуаций.
         /// </summary>
-        /// <param name="piece"> Фигура которая ходит. </param>
-        /// <param name="movePosition"> Желаемая позиция фигуры. </param>
-        /// <returns></returns>
-        public bool CanMove(Piece piece, Position movePosition)
+        /// <param name="board"> Шахматная доска. </param>
+        /// <param name="piece"> Ходячая фигура. </param>
+        /// <param name="position"> Позиция хода. </param>
+        /// <returns> Возвращает true если ход не нарушает правил, в противном случае false. </returns>
+        public bool CheckRules(CheesBoard board, Piece piece, Position position)
         {
-            
-
-            return false;
+            return true;
         }
+
     }
 }

@@ -26,13 +26,12 @@ namespace ChessLibrary
         public Game()
         {
             board = new CheesBoard();
-            rules = new CheesRules(board);
+            rules = new CheesRules();
+            playerWithMove = PieceColor.White;
 
             //ref WhitePlayer whitePlayer, ref BlackPlayer blackPlayer
             //this.whitePlayer = whitePlayer;
             //this.blackPlayer = blackPlayer;
-
-            playerWithMove = PieceColor.White;            
         }
 
         /// <summary>
@@ -59,7 +58,7 @@ namespace ChessLibrary
         /// <returns> Возвражает true если ход возможен, в случае хода в не очереди или невозможности хода false. </returns>
         public bool Move(Piece piece, Position movePosition)
         {
-            if (piece.Color == playerWithMove )
+            if ( (piece != null) && (piece.Color == playerWithMove) )
             {
                 bool can =  piece.CheckMove(board, movePosition);
 

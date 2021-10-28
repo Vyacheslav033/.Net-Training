@@ -8,10 +8,9 @@ namespace TestingApp
     {
         static void Main(string[] args)
         {
-
             var game = new Game();
 
-            for (var i = 0; i < 100; i++)
+            while (true)
             {
                 OutputBoard(game.Board);
 
@@ -33,35 +32,14 @@ namespace TestingApp
 
                     if (!rightMove)
                     {
-                        Console.WriteLine("Ход невозможен");
+                        Console.WriteLine("Ход невозможен!");
                     }
                 }
-                while (rightMove == false);
+                while (!rightMove);
 
                 Console.WriteLine();
             }
-       
-            //var position = new Position[]
-            //{                 
-            //    new Position("f7"),
-            //    new Position("f8"),
-            //    new Position("f5"),
-            //};
 
-            //var piece = new Queen(new Position("f3"), PieceColor.White);
-
-            //board.MovePiece(new Queen(new Position("d1"), PieceColor.White), piece.Position);
-
-            //OutputBoard(board);
-
-            //Console.WriteLine();
-
-            //for (var i = 0; i < position.Length; i++)
-            //{
-            //    Console.WriteLine(position[i] + " - " + piece.CheckMove(board, position[i]));
-            //}
-
-            Console.ReadLine();
         }      
 
         /// <summary>
