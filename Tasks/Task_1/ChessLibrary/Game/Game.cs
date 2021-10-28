@@ -58,18 +58,21 @@ namespace ChessLibrary
         /// <returns> Возвражает true если ход возможен, в случае хода в не очереди или невозможности хода false. </returns>
         public bool Move(Piece piece, Position movePosition)
         {
+            // Проверяем чья очередь хода и на пустую фигуру.
             if ( (piece != null) && (piece.Color == playerWithMove) )
             {
-                bool can =  piece.CheckMove(board, movePosition);
-
-                if (can)
+                // Проверяем может ли так ходить фигура.
+                if ( piece.CheckMove(board, movePosition) )
                 {
-                    // Добавить сюда проверку по правилам.
-                    board.MovePiece(piece, movePosition);
+                    // Проверяем не нарушает ли ход правила.
+                    if ( rules.CheckRules(board, piece, movePosition) )
+                    {
+                        board.MovePiece(piece, movePosition);
 
-                    playerWithMove = (playerWithMove == PieceColor.White) ? PieceColor.Black : PieceColor.White;
+                        playerWithMove = (playerWithMove == PieceColor.White) ? PieceColor.Black : PieceColor.White;
 
-                    return true;
+                        return true;
+                    }                  
                 }  
             }
 

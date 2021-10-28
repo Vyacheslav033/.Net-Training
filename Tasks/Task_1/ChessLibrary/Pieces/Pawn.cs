@@ -55,8 +55,7 @@ namespace ChessLibrary
             }
 
             return false;
-        }      
-
-        
+        }
+      
     }
 }
