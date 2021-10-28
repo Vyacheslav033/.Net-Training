@@ -11,12 +11,13 @@ namespace ChessLibrary
 
         private CheesRules rules;
 
+        private CheesLogger logger;
+
         private WhitePlayer whitePlayer;
 
         private BlackPlayer blackPlayer;
 
         private PieceColor playerWithMove;
-        
 
         /// <summary>
         /// Инициализатор класса Game.
@@ -27,6 +28,7 @@ namespace ChessLibrary
         {
             board = new CheesBoard();
             rules = new CheesRules();
+            logger = new CheesFileLogger();
             playerWithMove = PieceColor.White;
 
             //ref WhitePlayer whitePlayer, ref BlackPlayer blackPlayer
@@ -67,6 +69,8 @@ namespace ChessLibrary
                     // Проверяем не нарушает ли ход правила.
                     if ( rules.CheckRules(board, piece, movePosition) )
                     {
+                        logger.AddLog(board, piece, movePosition);
+
                         board.MovePiece(piece, movePosition);
 
                         playerWithMove = (playerWithMove == PieceColor.White) ? PieceColor.Black : PieceColor.White;

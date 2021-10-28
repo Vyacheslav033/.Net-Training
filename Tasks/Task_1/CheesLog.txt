@@ -1,0 +1,3 @@
+White Pawn F2 -> F3
+Black Pawn A7 -> A6
+White Knight B1 -> C3

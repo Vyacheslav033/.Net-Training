@@ -39,7 +39,6 @@ namespace TestingApp
 
                 Console.WriteLine();
             }
-
         }      
 
         /// <summary>

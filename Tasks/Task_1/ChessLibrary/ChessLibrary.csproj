@@ -48,6 +48,9 @@
     <Compile Include="Enum\PieceColor.cs" />
     <Compile Include="Game\CheesRules.cs" />
     <Compile Include="Game\Game.cs" />
+    <Compile Include="Logging\CheesConsoleLogger.cs" />
+    <Compile Include="Logging\CheesFileLogger.cs" />
+    <Compile Include="Logging\CheesLogger.cs" />
     <Compile Include="Pieces\Bishop.cs" />
     <Compile Include="Pieces\King.cs" />
     <Compile Include="Pieces\Knight.cs" />
