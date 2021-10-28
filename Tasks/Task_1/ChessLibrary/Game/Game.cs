@@ -7,7 +7,7 @@ namespace ChessLibrary
     /// </summary>
     public class Game
     {
-        private CheesBoard cheesBoard;
+        private CheesBoard board;
 
         private CheesRules rules;
 
@@ -16,21 +16,39 @@ namespace ChessLibrary
         private BlackPlayer blackPlayer;
 
         private PieceColor playerWithMove;
+        
 
         /// <summary>
         /// Инициализатор класса Game.
         /// </summary>
         /// <param name="whitePlayer"> Игрок за белых. </param>
         /// <param name="blackPlayer"> Игрок за чёрных. </param>
-        public Game(ref WhitePlayer whitePlayer, ref BlackPlayer blackPlayer)
+        public Game()
         {
-            cheesBoard = new CheesBoard();
-            rules = new CheesRules(cheesBoard);
+            board = new CheesBoard();
+            rules = new CheesRules(board);
 
-            this.whitePlayer = whitePlayer;
-            this.blackPlayer = blackPlayer;
+            //ref WhitePlayer whitePlayer, ref BlackPlayer blackPlayer
+            //this.whitePlayer = whitePlayer;
+            //this.blackPlayer = blackPlayer;
 
             playerWithMove = PieceColor.White;            
+        }
+
+        /// <summary>
+        /// Шахматная доска.
+        /// </summary>
+        public CheesBoard Board
+        {
+            get { return board; }
+        }
+
+        /// <summary>
+        /// Чей ход.
+        /// </summary>
+        public PieceColor PlayerWithMove
+        {
+            get { return playerWithMove; }
         }
 
         /// <summary>
@@ -41,19 +59,19 @@ namespace ChessLibrary
         /// <returns> Возвражает true если ход возможен, в случае хода в не очереди или невозможности хода false. </returns>
         public bool Move(Piece piece, Position movePosition)
         {
-            if (piece.Color == playerWithMove)
+            if (piece.Color == playerWithMove )
             {
-                bool can =  piece.CheckMove(cheesBoard, movePosition);
+                bool can =  piece.CheckMove(board, movePosition);
 
                 if (can)
                 {
                     // Добавить сюда проверку по правилам.
-                    cheesBoard.MovePiece(piece, movePosition);
+                    board.MovePiece(piece, movePosition);
 
-                    
-                }
+                    playerWithMove = (playerWithMove == PieceColor.White) ? PieceColor.Black : PieceColor.White;
 
-                playerWithMove = (playerWithMove == PieceColor.White) ? PieceColor.Black : PieceColor.White;
+                    return true;
+                }  
             }
 
             return false;

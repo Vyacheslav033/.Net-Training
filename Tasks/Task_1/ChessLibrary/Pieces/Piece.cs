@@ -83,9 +83,13 @@ namespace ChessLibrary
             return false;
         }
 
+        /// <summary>
+        /// Получить HashCode объекта Piece.
+        /// </summary>
+        /// <returns> HashCode объекта Piece. </returns>
         public override int GetHashCode()
         {
-            return base.GetHashCode();
+            return position.GetHashCode() ^ color.GetHashCode() ^ this.GetType().GetHashCode();
         }
 
         /// <summary>

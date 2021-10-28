@@ -1,5 +1,6 @@
 ﻿using System;
 using ChessLibrary;
+using System.Text.RegularExpressions;
 
 namespace TestingApp
 {
@@ -7,27 +8,58 @@ namespace TestingApp
     {
         static void Main(string[] args)
         {
-            var board = new CheesBoard();
-       
-            var position = new Position[]
-            {                 
-                new Position("f7"),
-                new Position("f8"),
-                new Position("f5"),
-            };
 
-            var piece = new Queen(new Position("f3"), PieceColor.White);
+            var game = new Game();
 
-            board.MovePiece(new Queen(new Position("d1"), PieceColor.White), piece.Position);
-
-            OutputBoard(board);
-
-            Console.WriteLine();
-
-            for (var i = 0; i < position.Length; i++)
+            for (var i = 0; i < 100; i++)
             {
-                Console.WriteLine(position[i] + " - " + piece.CheckMove(board, position[i]));
+                OutputBoard(game.Board);
+
+                bool rightMove = true;
+
+                string color = (game.PlayerWithMove == PieceColor.White) ? "белых" : "чёрных";
+                Console.WriteLine("Ход " + color + "!");
+
+                do
+                {
+                    Console.Write("Позиция фигуры-позиция хода: ");
+                    string posInfo = Console.ReadLine();
+
+                    var positions = Regex.Split(posInfo, "-");
+
+                    var piecePosition = new Position(positions[0]);
+
+                    rightMove = game.Move(game.Board[piecePosition.Row, piecePosition.Column], new Position(positions[1]));
+
+                    if (!rightMove)
+                    {
+                        Console.WriteLine("Ход невозможен");
+                    }
+                }
+                while (rightMove == false);
+
+                Console.WriteLine();
             }
+       
+            //var position = new Position[]
+            //{                 
+            //    new Position("f7"),
+            //    new Position("f8"),
+            //    new Position("f5"),
+            //};
+
+            //var piece = new Queen(new Position("f3"), PieceColor.White);
+
+            //board.MovePiece(new Queen(new Position("d1"), PieceColor.White), piece.Position);
+
+            //OutputBoard(board);
+
+            //Console.WriteLine();
+
+            //for (var i = 0; i < position.Length; i++)
+            //{
+            //    Console.WriteLine(position[i] + " - " + piece.CheckMove(board, position[i]));
+            //}
 
             Console.ReadLine();
         }      
@@ -82,6 +114,10 @@ namespace TestingApp
             {
                 Console.Write($" {positionY[i].ToUpper()} ");
             }
+
+            Console.ForegroundColor = ConsoleColor.White;
+
+            Console.WriteLine("\n");
         }
     }
 }

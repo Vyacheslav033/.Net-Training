@@ -33,7 +33,7 @@ namespace ChessLibrary
             int cellsCount = newPos.Column - position.Column;
 
             // Проверка на возможность хода по вертикали.
-            if ( ( (cellsCount == possibleСells * revers) || (cellsCount == 1 * revers)) && (newPos.Row == position.Row))
+            if (  ((cellsCount == possibleСells * revers) || (cellsCount == 1 * revers)) && (newPos.Row == position.Row))
             {
                 if (board[newPos.Row, newPos.Column] == null)
                 {
@@ -44,7 +44,7 @@ namespace ChessLibrary
             }
 
             // Проверка на битьё фигуры.
-            if( (cellsCount == 1 * revers) && ( (newPos.Row == position.Row - 1) || (newPos.Row == position.Row + 1) ) )
+            if ((cellsCount == 1 * revers) && ((newPos.Row == position.Row - 1) || (newPos.Row == position.Row + 1)))
             {
                 Piece p = board[newPos.Row, newPos.Column];
 
@@ -53,7 +53,7 @@ namespace ChessLibrary
                     return true;
                 }
             }
-           
+
             return false;
         }      
     }

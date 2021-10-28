@@ -95,14 +95,18 @@ namespace ChessLibrary
         /// Передвинуть фигуру.
         /// </summary>
         /// <param name="piece"> Передвигаемая фигура. </param>
-        /// <param name="position"> Новая позиция. </param>
+        /// <param name="newPosition"> Новая позиция. </param>
         /// <returns> Возвращает true если фигура передвинута, в противном случае false. </returns>
-        public bool MovePiece(Piece piece, Position position)
+        public bool MovePiece(Piece piece, Position newPosition)
         {
             if (SearchPiece(piece))
             {
-                board[piece.Position.Row, piece.Position.Column] = null;          
-                board[position.Row, position.Column] = piece;
+                int row = piece.Position.Row;
+                int column = piece.Position.Column;
+
+                board[row, column].Position = newPosition;
+                board[newPosition.Row, newPosition.Column] = board[row, column];
+                board[row, column] = null;
 
                 return true;
             }

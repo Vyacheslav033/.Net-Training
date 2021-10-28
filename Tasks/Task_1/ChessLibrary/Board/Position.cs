@@ -8,9 +8,15 @@ namespace ChessLibrary
     /// </summary>
     public class Position
     {
-        private string x;
+        /// <summary>
+        /// Позиция по горизонтали.
+        /// </summary>
+        private string row;
 
-        private int y;
+        /// <summary>
+        /// Позиция по вертикали.
+        /// </summary>
+        private int columm;
 
         /// <summary>
         /// Инициализатор класса Position.
@@ -26,8 +32,8 @@ namespace ChessLibrary
 
             if (CheckPosition(x, y))
             {
-                this.x = x.ToUpper();
-                this.y = y;
+                this.row = x.ToUpper();
+                this.columm = y;
             } 
         }
 
@@ -47,25 +53,9 @@ namespace ChessLibrary
 
             if (CheckPosition(pX, pY))
             {
-                this.x = pX.ToUpper();
-                this.y = pY;
+                this.row = pX.ToUpper();
+                this.columm = pY;
             }             
-        }
-
-        /// <summary>
-        /// Позиция по горизонтали.
-        /// </summary>
-        public string X
-        {
-            get { return x; }
-        }
-
-        /// <summary>
-        /// Позиция по вертикали.
-        /// </summary>
-        public int Y
-        {
-            get { return y; }
         }
   
         /// <summary>
@@ -73,7 +63,7 @@ namespace ChessLibrary
         /// </summary>
         public int Row
         {
-            get { return (int)Enum.Parse(typeof(VerticalPosition), x); }
+            get { return (int)Enum.Parse(typeof(VerticalPosition), row); }
         }
 
         /// <summary>
@@ -81,7 +71,7 @@ namespace ChessLibrary
         /// </summary>
         public int Column
         {
-            get { return y - 1; }
+            get { return columm - 1; }
         }
 
         /// <summary>
@@ -116,15 +106,19 @@ namespace ChessLibrary
             {
                 Position pos = (Position)obj;
 
-                return (this.x == pos.x) && (this.y == pos.y);
+                return (this.row == pos.row) && (this.columm == pos.columm);
             }
 
             return false;             
         }
 
+        /// <summary>
+        /// Получить HashCode объекта Position.
+        /// </summary>
+        /// <returns> HashCode объекта Position. </returns>
         public override int GetHashCode()
-        {       
-            return base.GetHashCode();
+        {
+            return row.GetHashCode() ^ columm;
         }
 
         /// <summary>
@@ -133,7 +127,7 @@ namespace ChessLibrary
         /// <returns> Позиция на шахматной доске. </returns>
         public override string ToString()
         {
-            return $"{x}{y}";
+            return $"{row}{columm}";
         }
     }
 }

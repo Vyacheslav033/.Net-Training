@@ -9,6 +9,7 @@ namespace ChessLibrary
     {
         Normal,
         Impossible,
-        Beat
+        Beat,
+        Check
     }
 }
