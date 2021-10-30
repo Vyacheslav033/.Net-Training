@@ -10,6 +10,9 @@ namespace ChessLibrary
         Normal,
         Impossible,
         Beat,
-        Check
+        Check,
+        CheckAndCheckmate,
+        TurningAPawn,
+        End
     }
 }

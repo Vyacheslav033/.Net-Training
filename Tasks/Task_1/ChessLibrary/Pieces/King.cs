@@ -16,6 +16,13 @@ namespace ChessLibrary
         { }
 
         /// <summary>
+        /// Констртуктор копирования класса King.
+        /// </summary>
+        /// <param name="piece"> Фигура. </param>
+        public King(Piece piece) : base(piece)
+        { }
+
+        /// <summary>
         /// Проверка хода короля.
         /// </summary>
         /// <param name="board"> Шахматная доска. </param>

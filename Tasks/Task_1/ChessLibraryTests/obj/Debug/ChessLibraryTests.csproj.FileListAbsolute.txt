@@ -1,0 +1,11 @@
+D:\C#\.Net-Training\Tasks\Task_1\ChessLibraryTests\bin\Debug\ChessLibraryTests.dll
+D:\C#\.Net-Training\Tasks\Task_1\ChessLibraryTests\bin\Debug\ChessLibraryTests.pdb
+D:\C#\.Net-Training\Tasks\Task_1\ChessLibraryTests\bin\Debug\ChessLibrary.dll
+D:\C#\.Net-Training\Tasks\Task_1\ChessLibraryTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+D:\C#\.Net-Training\Tasks\Task_1\ChessLibraryTests\bin\Debug\ChessLibrary.pdb
+D:\C#\.Net-Training\Tasks\Task_1\ChessLibraryTests\bin\Debug\ru\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+D:\C#\.Net-Training\Tasks\Task_1\ChessLibraryTests\obj\Debug\ChessLibraryTests.csproj.AssemblyReference.cache
+D:\C#\.Net-Training\Tasks\Task_1\ChessLibraryTests\obj\Debug\ChessLibraryTests.csproj.CoreCompileInputs.cache
+D:\C#\.Net-Training\Tasks\Task_1\ChessLibraryTests\obj\Debug\ChessLibraryTests.csproj.CopyComplete
+D:\C#\.Net-Training\Tasks\Task_1\ChessLibraryTests\obj\Debug\ChessLibraryTests.dll
+D:\C#\.Net-Training\Tasks\Task_1\ChessLibraryTests\obj\Debug\ChessLibraryTests.pdb

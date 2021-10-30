@@ -1,3 +1,5 @@
-White Pawn F2 -> F3
-Black Pawn A7 -> A6
-White Knight B1 -> C3
+1. White Pawn A2 -> A4
+2. Black Pawn B7 -> B5
+3. White Pawn A4 beats Pawn B5
+4. Black Bishop C8 -> A6
+5. White Rook A1 beats Bishop A6

@@ -16,6 +16,13 @@ namespace ChessLibrary
         { }
 
         /// <summary>
+        /// Констртуктор копирования класса Rook.
+        /// </summary>
+        /// <param name="piece"> Фигура. </param>
+        public Rook(Piece piece) : base(piece)
+        { }
+
+        /// <summary>
         /// Проверка хода ладьи.
         /// </summary>
         /// <param name="board"> Шахматная доска. </param>

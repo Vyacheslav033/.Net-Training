@@ -2,13 +2,18 @@
 using ChessLibrary;
 using System.Text.RegularExpressions;
 
-namespace TestingApp
+namespace CheesConsoleApp
 {
     class Program
     {
         static void Main(string[] args)
         {
-            var game = new Game();
+            var whitePlayer = new WhitePlayer();
+            var blackPlayer = new BlackPlayer();
+
+            var game = new Game(ref whitePlayer, ref blackPlayer);
+
+            Console.WriteLine("Ход вводится в формате позиция фигуры-позиция хода, латинские буквы. \n Например: A2-A3 \n\n");
 
             while (true)
             {
@@ -16,30 +21,54 @@ namespace TestingApp
 
                 bool rightMove = true;
 
-                string color = (game.PlayerWithMove == PieceColor.White) ? "белых" : "чёрных";
-                Console.WriteLine("Ход " + color + "!");
+                string color = (game.PlayerWithMove == typeof(WhitePlayer)) ? "белых" : "чёрных";
+                Console.WriteLine("Ход " + color + "!\n");
 
                 do
                 {
-                    Console.Write("Позиция фигуры-позиция хода: ");
-                    string posInfo = Console.ReadLine();
-
-                    var positions = Regex.Split(posInfo, "-");
-
-                    var piecePosition = new Position(positions[0]);
-
-                    rightMove = game.Move(game.Board[piecePosition.Row, piecePosition.Column], new Position(positions[1]));
-
-                    if (!rightMove)
+                    try
                     {
-                        Console.WriteLine("Ход невозможен!");
+                        Console.Write("Позиция фигуры-позиция хода: ");
+                        string posInfo = Console.ReadLine();
+
+                        var positions = Regex.Split(posInfo, "-");
+
+                        var piecePosition = new Position(positions[0]);
+
+                        if (game.PlayerWithMove == typeof(WhitePlayer))
+                        {
+                            whitePlayer.GetOwnPieces(game.Board);
+
+                            whitePlayer.MovingPiece = game.Board[piecePosition.Row, piecePosition.Column];
+
+                            rightMove = game.Move(whitePlayer, new Position(positions[1]));
+                        }
+                        else
+                        {
+                            blackPlayer.GetOwnPieces(game.Board);
+
+                            blackPlayer.MovingPiece = game.Board[piecePosition.Row, piecePosition.Column];
+
+                            rightMove = game.Move(blackPlayer, new Position(positions[1]));
+                        }
+
+                        if (!rightMove)
+                        {
+                            Console.WriteLine("Ход невозможен!\n");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message + "\n");
+
+                        rightMove = false;
                     }
                 }
                 while (!rightMove);
 
                 Console.WriteLine();
             }
-        }      
+        }
 
         /// <summary>
         /// Вывод шахматной доски.
@@ -71,7 +100,7 @@ namespace TestingApp
                     {
                         Console.ForegroundColor = (piece.Color == PieceColor.White) ? ConsoleColor.White : ConsoleColor.Black;
 
-                        sym = piece.ToString();
+                        sym = piece.ToString()[0].ToString();
                     }
 
                     Console.Write($" {sym} ");

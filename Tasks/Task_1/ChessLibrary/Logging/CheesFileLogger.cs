@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 
 namespace ChessLibrary
 {
@@ -28,28 +26,6 @@ namespace ChessLibrary
 
                 isFile = true;
             }
-        }
-
-        /// <summary>
-        /// Удалить запись по номеру.
-        /// </summary>
-        /// <param name="id"> Номер записи. </param>
-        /// <returns> Возвращает true если запись удалена, в противном случае false. </returns>
-        public override bool RemoveLogById(int id)
-        {
-            if ( File.Exists(path) && base.RemoveLogById(id) )
-            {
-                var fileLog = new List<string>();
-
-                fileLog.AddRange(File.ReadAllLines(path));
-                fileLog.RemoveAt(id);
-
-                File.WriteAllLines(path, fileLog);
-
-                return true;
-            }
-
-            return false;
-        }
+        }      
     }
 }

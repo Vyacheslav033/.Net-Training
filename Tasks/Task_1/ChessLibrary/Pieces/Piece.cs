@@ -30,7 +30,7 @@ namespace ChessLibrary
         /// <summary>
         /// Констртуктор копирования класса Piece.
         /// </summary>
-        /// <param name="piece"></param>
+        /// <param name="piece"> Фигура. </param>
         public Piece (Piece piece)
         {
             if (piece == null)
@@ -92,7 +92,7 @@ namespace ChessLibrary
         /// <returns> Возвращает true в случае равенства фигур, в противном случае false. </returns>
         public override bool Equals(object obj)
         {
-            if (this.GetType() == obj.GetType())
+            if ( (obj != null) && (this.GetType() == obj.GetType()) )
             {
                 Piece piece = (Piece)obj;
 
@@ -117,9 +117,7 @@ namespace ChessLibrary
         /// <returns> Название фигуры. </returns>
         public override string ToString()
         {
-            return this.GetType().Name[0].ToString();
-
-            // $"{this.GetType().Name} ({position}, {color})";
+            return this.GetType().Name;
         }
     }
 }

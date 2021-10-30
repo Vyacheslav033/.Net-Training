@@ -21,40 +21,40 @@ namespace ChessLibrary
         /// <summary>
         /// Инициализатор класса Position.
         /// </summary>
-        /// <param name="x"> Позиция по горизонтали. </param>
-        /// <param name="y"> Позиция по вертикали. </param>
-        public Position(string x, int y)
+        /// <param name="row"> Позиция по горизонтали. </param>
+        /// <param name="column"> Позиция по вертикали. </param>
+        public Position(string row, int column)
         {
-            if (x.Length != 1)
+            if (row.Length != 1)
             {
                 throw new ArgumentException("Позиция по горизонтали задана в неправильном формате.");
             }
 
-            if (CheckPosition(x, y))
+            if (CheckPosition(row, column))
             {
-                this.row = x.ToUpper();
-                this.columm = y;
+                this.row = row.ToUpper();
+                this.columm = column;
             } 
         }
 
         /// <summary>
         /// Инициализатор класса Position.
         /// </summary>
-        /// <param name="position"> Позиция на доске в формате "XY". </param>
-        public Position(string position)
+        /// <param name="cell"> Позиция на доске в формате "XY". </param>
+        public Position(string cell)
         {
-            string pX = position[0].ToString();
-            int pY = 0;
+            string row = cell[0].ToString();
+            int column = 0;
 
-            if ( (position.Length != 2) || (!Int32.TryParse(position[1].ToString(), out pY)) )
+            if ( (cell.Length != 2) || (!Int32.TryParse(cell[1].ToString(), out column)) )
             {
                 throw new ArgumentException("Позиция на доске задана в неправильном формате.");
             }
 
-            if (CheckPosition(pX, pY))
+            if (CheckPosition(row, column))
             {
-                this.row = pX.ToUpper();
-                this.columm = pY;
+                this.row = row.ToUpper();
+                this.columm = column;
             }             
         }
   
@@ -77,17 +77,17 @@ namespace ChessLibrary
         /// <summary>
         /// Проверка позиции на доске.
         /// </summary>
-        /// <param name="pX"> Позиция по горизонтали. </param>
-        /// <param name="pY"> Позиция по вертикали. </param>
+        /// <param name="row"> Позиция по горизонтали. </param>
+        /// <param name="column"> Позиция по вертикали. </param>
         /// <returns> Возвращает true если данная позиция существует, в противном случае false. </returns>
-        private bool CheckPosition(string pX, int pY)
+        private bool CheckPosition(string row, int column)
         {
-            if (!Regex.Match(pX, @"[a-hA-H]").Success)
+            if (!Regex.Match(row, @"[a-hA-H]").Success)
             {
                 throw new ArgumentException("Позиция по горизонтали выходит за диапозон A-H.");
             }
 
-            if (pY < 1 || pY > 8)
+            if (column < 1 || column > 8)
             {
                 throw new ArgumentException("Позиция по вертикали выходит за диапозон 1-8.");
             }
@@ -102,7 +102,7 @@ namespace ChessLibrary
         /// <returns> Возвращает true в случае равенства позиций, в противном случае false. </returns>
         public override bool Equals(object obj)
         {
-            if (obj is Position)
+            if ( (obj != null) && (obj is Position) )
             {
                 Position pos = (Position)obj;
 

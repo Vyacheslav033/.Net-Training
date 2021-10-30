@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Общие сведения об этой сборке предоставляются следующим набором
 // набора атрибутов. Измените значения этих атрибутов для изменения сведений,
 // связанные с этой сборкой.
-[assembly: AssemblyTitle("TestingApp")]
+[assembly: AssemblyTitle("CheesConsoleApp")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("TestingApp")]
+[assembly: AssemblyProduct("CheesConsoleApp")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID представляет идентификатор typelib, если этот проект доступен из модели COM
-[assembly: Guid("cbd7c9fa-f5a8-4f85-8284-19c42c2b1d99")]
+[assembly: Guid("79ec57f1-228e-4077-afc3-4836644bff65")]
 
 // Сведения о версии сборки состоят из указанных ниже четырех значений:
 //

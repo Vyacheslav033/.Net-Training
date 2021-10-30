@@ -1,0 +1,10 @@
+D:\C#\.Net-Training\Tasks\Task_1\CheesConsoleApp\bin\Debug\CheesConsoleApp.exe.config
+D:\C#\.Net-Training\Tasks\Task_1\CheesConsoleApp\bin\Debug\CheesConsoleApp.exe
+D:\C#\.Net-Training\Tasks\Task_1\CheesConsoleApp\bin\Debug\CheesConsoleApp.pdb
+D:\C#\.Net-Training\Tasks\Task_1\CheesConsoleApp\bin\Debug\ChessLibrary.dll
+D:\C#\.Net-Training\Tasks\Task_1\CheesConsoleApp\bin\Debug\ChessLibrary.pdb
+D:\C#\.Net-Training\Tasks\Task_1\CheesConsoleApp\obj\Debug\CheesConsoleApp.csproj.AssemblyReference.cache
+D:\C#\.Net-Training\Tasks\Task_1\CheesConsoleApp\obj\Debug\CheesConsoleApp.csproj.CoreCompileInputs.cache
+D:\C#\.Net-Training\Tasks\Task_1\CheesConsoleApp\obj\Debug\CheesConsoleApp.csproj.CopyComplete
+D:\C#\.Net-Training\Tasks\Task_1\CheesConsoleApp\obj\Debug\CheesConsoleApp.exe
+D:\C#\.Net-Training\Tasks\Task_1\CheesConsoleApp\obj\Debug\CheesConsoleApp.pdb

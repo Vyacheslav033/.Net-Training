@@ -13,27 +13,23 @@ namespace ChessLibrary
 
         private CheesLogger logger;
 
-        private WhitePlayer whitePlayer;
-
-        private BlackPlayer blackPlayer;
-
-        private PieceColor playerWithMove;
+        private Type playerWithMove;
 
         /// <summary>
         /// Инициализатор класса Game.
         /// </summary>
         /// <param name="whitePlayer"> Игрок за белых. </param>
         /// <param name="blackPlayer"> Игрок за чёрных. </param>
-        public Game()
+        public Game(ref WhitePlayer whitePlayer, ref BlackPlayer blackPlayer)
         {
             board = new CheesBoard();
             rules = new CheesRules();
             logger = new CheesFileLogger();
-            playerWithMove = PieceColor.White;
 
-            //ref WhitePlayer whitePlayer, ref BlackPlayer blackPlayer
-            //this.whitePlayer = whitePlayer;
-            //this.blackPlayer = blackPlayer;
+            whitePlayer.GetOwnPieces(board);
+            blackPlayer.GetOwnPieces(board);
+
+            playerWithMove = typeof(WhitePlayer);
         }
 
         /// <summary>
@@ -47,33 +43,36 @@ namespace ChessLibrary
         /// <summary>
         /// Чей ход.
         /// </summary>
-        public PieceColor PlayerWithMove
+        public Type PlayerWithMove
         {
             get { return playerWithMove; }
-        }
+        }       
 
         /// <summary>
         /// Ход.
         /// </summary>
-        /// <param name="piece"> Фигура которая ходит. </param>
+        /// <param name="player"> Фигура которая ходит. </param>
         /// <param name="movePosition"> Желаемая позиция фигуры. </param>
-        /// <returns> Возвражает true если ход возможен, в случае хода в не очереди или невозможности хода false. </returns>
-        public bool Move(Piece piece, Position movePosition)
+        /// <returns> Возвражает true если ход был сделан, в случае хода в не очереди или невозможности хода false. </returns>
+        public bool Move(Player player, Position movePosition)
         {
             // Проверяем чья очередь хода и на пустую фигуру.
-            if ( (piece != null) && (piece.Color == playerWithMove) )
+            if ( (player.MovingPiece != null) && (player.GetType() == playerWithMove) )
             {
                 // Проверяем может ли так ходить фигура.
-                if ( piece.CheckMove(board, movePosition) )
+                if ( player.MovingPiece.CheckMove(board, movePosition) )
                 {
                     // Проверяем не нарушает ли ход правила.
-                    if ( rules.CheckRules(board, piece, movePosition) )
+                    if ( rules.CheckRules(board, player.MovingPiece, movePosition) )
                     {
-                        logger.AddLog(board, piece, movePosition);
+                        // Логируем ход.
+                        logger.AddLog(board, player.MovingPiece, movePosition);
 
-                        board.MovePiece(piece, movePosition);
+                        // Ходим фигурой.
+                        board.MovePiece(player.MovingPiece, movePosition);
 
-                        playerWithMove = (playerWithMove == PieceColor.White) ? PieceColor.Black : PieceColor.White;
+                        // Даём ход другому игроку.
+                        playerWithMove = ( playerWithMove == typeof(WhitePlayer) ) ? typeof(BlackPlayer) : typeof(WhitePlayer);
 
                         return true;
                     }                  

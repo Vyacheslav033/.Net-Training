@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace ChessLibrary
 {
@@ -9,14 +8,12 @@ namespace ChessLibrary
     public class BlackPlayer : Player
     {
         /// <summary>
-        /// Инициализатор класса BlackPlayer.
+        /// Получить фигуры чёрного цвета.
         /// </summary>
-        public BlackPlayer()
+        /// <param name="board"> Шахматная доска. </param>
+        public override void GetOwnPieces(CheesBoard board)
         {
-            pieces = new List<Piece>()
-            {
-                
-            };
+            pieces = board.GetPieces(PieceColor.Black);
         }
 
     }

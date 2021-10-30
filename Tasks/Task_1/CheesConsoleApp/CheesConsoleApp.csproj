@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CBD7C9FA-F5A8-4F85-8284-19C42C2B1D99}</ProjectGuid>
+    <ProjectGuid>{79EC57F1-228E-4077-AFC3-4836644BFF65}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>TestingApp</RootNamespace>
-    <AssemblyName>TestingApp</AssemblyName>
+    <RootNamespace>CheesConsoleApp</RootNamespace>
+    <AssemblyName>CheesConsoleApp</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

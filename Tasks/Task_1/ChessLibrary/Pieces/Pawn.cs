@@ -20,6 +20,15 @@ namespace ChessLibrary
         }
 
         /// <summary>
+        /// Констртуктор копирования класса Pawn.
+        /// </summary>
+        /// <param name="piece"> Фигура. </param>
+        public Pawn(Piece piece) : base(piece)
+        {
+            firstMove = true;
+        }
+
+        /// <summary>
         /// Проверка хода пешки.
         /// </summary>
         /// <param name="board"> Шахматная доска. </param>
@@ -56,6 +65,22 @@ namespace ChessLibrary
 
             return false;
         }
-      
+
+        /// <summary>
+        /// Превращение пешки.
+        /// </summary>
+        /// <param name="piece"> Фигура в которую желает превратиться пешка. </param>
+        /// <returns> Возвращает true если пешка может превратиться в данную фигуру, в противном случае false. </returns>
+        public bool CanTurningAPawn(Piece piece)
+        {
+            if (!(piece is Pawn) && !(piece is King) &&
+                 (color == piece.Color) && position.Equals(piece.Position))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
     }
 }

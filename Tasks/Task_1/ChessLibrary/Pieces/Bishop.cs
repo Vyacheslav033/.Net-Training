@@ -17,6 +17,13 @@ namespace ChessLibrary
         { }
 
         /// <summary>
+        /// Констртуктор копирования класса Bishop.
+        /// </summary>
+        /// <param name="piece"> Фигура. </param>
+        public Bishop(Piece piece) : base(piece)
+        { }
+
+        /// <summary>
         /// Проверка хода слона.
         /// </summary>
         /// <param name="board"> Шахматная доска. </param>
