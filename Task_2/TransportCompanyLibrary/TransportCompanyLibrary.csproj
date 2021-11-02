@@ -44,6 +44,7 @@
     <Compile Include="Products\Cargo.cs" />
     <Compile Include="Products\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Transport\Fuel.cs" />
     <Compile Include="Transport\Tractors\Tractor.cs" />
     <Compile Include="Transport\Trailers\RefrigeratedSemitrailer.cs" />
     <Compile Include="Transport\Trailers\Semitrailer.cs" />

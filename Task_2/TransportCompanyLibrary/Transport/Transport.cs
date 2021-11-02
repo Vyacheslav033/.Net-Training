@@ -12,6 +12,7 @@ namespace TransportCompanyLibrary
         protected float weight;
         protected int enginePower;
         protected int loadCapacity;
+        protected Fuel fuelType;
         protected float fuelConsumption;
 
         /// <summary>
@@ -22,8 +23,9 @@ namespace TransportCompanyLibrary
         /// <param name="weight"> Вес. </param>
         /// <param name="enginePower"> Мощность двигателя. </param>
         /// <param name="loadCapacity"> Грузоподъёмность. </param>
+        /// <param name="fuelType"> Вид топлива. </param>
         /// <param name="fuelConsumption"> Расход топлива. </param>
-        public Transport(string mark, string model, float weight, int enginePower, int loadCapacity, float fuelConsumption)
+        public Transport(string mark, string model, float weight, int enginePower, int loadCapacity, Fuel fuelType, float fuelConsumption)
         {
             if (String.IsNullOrWhiteSpace(mark))
             {
@@ -62,6 +64,7 @@ namespace TransportCompanyLibrary
             this.weight = weight;
             this.enginePower = enginePower;
             this.loadCapacity = loadCapacity;
+            this.fuelType = fuelType;
             this.fuelConsumption = fuelConsumption;
         }
 
@@ -103,6 +106,14 @@ namespace TransportCompanyLibrary
         public virtual int LoadCapacity
         {
             get { return loadCapacity; }
+        }
+
+        /// <summary>
+        ///  Вид топлива.
+        /// </summary>
+        public Fuel FuelType
+        {
+            get { return fuelType; }
         }
 
         /// <summary>

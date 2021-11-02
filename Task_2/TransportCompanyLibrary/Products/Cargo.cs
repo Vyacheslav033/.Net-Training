@@ -9,6 +9,7 @@ namespace TransportCompanyLibrary
     public class Cargo
     {
         private List<Product> cargo;
+        private int maxWeight;
 
         /// <summary>
         /// Инициализатор класса Cargo.
@@ -16,6 +17,42 @@ namespace TransportCompanyLibrary
         public Cargo()
         {
             cargo = new List<Product>();
+
+            this.maxWeight = 0;
+        }
+
+        /// <summary>
+        /// Инициализатор класса Cargo.
+        /// </summary>
+        /// <param name="maxWeight"> Максимальный вес груза. </param>
+        public Cargo(int maxWeight)
+        {
+            if (maxWeight <= 0)
+            {
+                throw new ArgumentException("Максимальный вес груза должет быть больше 0.");
+            }
+
+            cargo = new List<Product>();
+
+            this.maxWeight = maxWeight;
+        }
+
+        /// <summary>
+        /// Индексатор.
+        /// </summary>
+        /// <param name="index"> Индекс товара в списке. </param>
+        /// <returns> Возвращает товар. </returns>
+        Product this[int index]
+        {
+            get
+            { 
+                if ( (index < 0) || (index > cargo.Count - 1) )
+                {
+                    throw new ArgumentException("Индекс выходит за пределы диапазона.", nameof(index));
+                }
+
+                return cargo[index];
+            }
         }
 
         /// <summary>
@@ -30,12 +67,28 @@ namespace TransportCompanyLibrary
         /// Добавить товар.
         /// </summary>
         /// <param name="product"> Товар. </param>
-        public void AddProduct(Product product)
+        /// <returns> Возвращает true если товар добавлен, в противном случае false. </returns>
+        public bool AddProduct(Product product)
         {
-            if (product != null)
+            if (product == null)
+            {
+                return false;
+            }
+
+            if (maxWeight == 0)
             {
                 cargo.Add(product);
+
+                return true;
             }
+            else if (CalculateWeight() + product.Weight <= maxWeight)
+            {
+                cargo.Add(product);
+
+                return true;
+            }
+
+            return false;
         }
 
         /// <summary>
@@ -67,7 +120,7 @@ namespace TransportCompanyLibrary
         /// <summary>
         /// Посчитать общий вес товара.
         /// </summary>
-        /// <returns> Общий вес товара. </returns>
+        /// <returns> Возвращает общий вес товара. </returns>
         private float CalculateWeight()
         {
             float weight = 0;

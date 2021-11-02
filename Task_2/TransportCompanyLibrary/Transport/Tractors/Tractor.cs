@@ -17,9 +17,10 @@ namespace TransportCompanyLibrary
         /// <param name="weight"> Вес. </param>
         /// <param name="enginePower"> Мощность двигателя. </param>
         /// <param name="loadCapacity"> Грузоподъёмность. </param>
+        /// <param name="fuelType"> Вид топлива. </param>
         /// <param name="fuelConsumption"> Расход топлива. </param>
-        public Tractor(string mark, string model, float weight, int enginePower, int loadCapacity, float fuelConsumption)
-            : base(mark, model, weight, enginePower, loadCapacity, fuelConsumption)
+        public Tractor(string mark, string model, float weight, int enginePower, int loadCapacity, Fuel fuelType, float fuelConsumption)
+            : base(mark, model, weight, enginePower, loadCapacity, fuelType, fuelConsumption)
         {
             // Можно добавить количество осей тягача, для расчёта правильной грузоподъёмности !!!
 
@@ -63,8 +64,22 @@ namespace TransportCompanyLibrary
 
         public override float GetConsumptionPerDistance(int km)
         {
+            // Норма расхода топлив на дополнительную массу прицепа.
+            double norma = 1;
+
+            if (fuelType == Fuel.Gasolin) { norma = 2; }      
+            
+            else if (fuelType == Fuel.Diesel) { norma = 1.3; }   
+            
+            else if (fuelType == Fuel.Gas) { norma = 2.3; }
+
+            double semW = (semitrailer == null) ? 1 : semitrailer.WeightWithCargo;
+
+            // Норма расхода топлив на пробег автомобиля или автопоезда в снаряженном состоянии без груза.
+            double hsan = fuelConsumption + (semW / 1000) * norma;
+
             // Реализовать !!!
-            return base.GetConsumptionPerDistance(km);
+            return (float) (hsan / km);
         }
     }
 }

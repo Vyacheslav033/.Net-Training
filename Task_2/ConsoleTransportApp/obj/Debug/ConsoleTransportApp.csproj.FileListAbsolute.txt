@@ -1,0 +1,10 @@
+D:\C#\.Net-Training\Task_2\ConsoleTransportApp\bin\Debug\ConsoleTransportApp.exe.config
+D:\C#\.Net-Training\Task_2\ConsoleTransportApp\bin\Debug\ConsoleTransportApp.exe
+D:\C#\.Net-Training\Task_2\ConsoleTransportApp\bin\Debug\ConsoleTransportApp.pdb
+D:\C#\.Net-Training\Task_2\ConsoleTransportApp\bin\Debug\TransportCompanyLibrary.dll
+D:\C#\.Net-Training\Task_2\ConsoleTransportApp\bin\Debug\TransportCompanyLibrary.pdb
+D:\C#\.Net-Training\Task_2\ConsoleTransportApp\obj\Debug\ConsoleTransportApp.csproj.AssemblyReference.cache
+D:\C#\.Net-Training\Task_2\ConsoleTransportApp\obj\Debug\ConsoleTransportApp.csproj.CoreCompileInputs.cache
+D:\C#\.Net-Training\Task_2\ConsoleTransportApp\obj\Debug\ConsoleTransportApp.exe
+D:\C#\.Net-Training\Task_2\ConsoleTransportApp\obj\Debug\ConsoleTransportApp.pdb
+D:\C#\.Net-Training\Task_2\ConsoleTransportApp\obj\Debug\ConsoleTransportApp.csproj.CopyComplete
