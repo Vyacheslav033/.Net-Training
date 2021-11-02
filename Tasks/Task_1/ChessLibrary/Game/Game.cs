@@ -20,7 +20,7 @@ namespace ChessLibrary
         /// </summary>
         /// <param name="whitePlayer"> Игрок за белых. </param>
         /// <param name="blackPlayer"> Игрок за чёрных. </param>
-        public Game(ref WhitePlayer whitePlayer, ref BlackPlayer blackPlayer)
+        public Game( WhitePlayer whitePlayer,  BlackPlayer blackPlayer)
         {
             board = new CheesBoard();
             rules = new CheesRules();
@@ -70,6 +70,9 @@ namespace ChessLibrary
 
                         // Ходим фигурой.
                         board.MovePiece(player.MovingPiece, movePosition);
+
+                        // Выдаём игроку список обновлённых фигур.
+                        player.GetOwnPieces(board);
 
                         // Даём ход другому игроку.
                         playerWithMove = ( playerWithMove == typeof(WhitePlayer) ) ? typeof(BlackPlayer) : typeof(WhitePlayer);

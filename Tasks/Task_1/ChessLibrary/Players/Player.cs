@@ -35,6 +35,8 @@ namespace ChessLibrary
                 else
                 {
                     movingPiece = null;
+
+                    throw new ArgumentException("Ход невозможен!");               
                 }
             }
         }

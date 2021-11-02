@@ -1,0 +1,4 @@
+1. White Pawn A2 -> A4
+2. Black Pawn B7 -> B5
+3. White Pawn A4 beats Pawn B5
+4. Black Pawn C7 -> C6

@@ -11,7 +11,7 @@ namespace CheesConsoleApp
             var whitePlayer = new WhitePlayer();
             var blackPlayer = new BlackPlayer();
 
-            var game = new Game(ref whitePlayer, ref blackPlayer);
+            var game = new Game( whitePlayer,  blackPlayer);
 
             Console.WriteLine("Ход вводится в формате позиция фигуры-позиция хода, латинские буквы. \n Например: A2-A3 \n\n");
 
@@ -37,22 +37,24 @@ namespace CheesConsoleApp
 
                         if (game.PlayerWithMove == typeof(WhitePlayer))
                         {
-                            whitePlayer.GetOwnPieces(game.Board);
+                            //whitePlayer.GetOwnPieces(game.Board);
 
                             whitePlayer.MovingPiece = game.Board[piecePosition.Row, piecePosition.Column];
 
                             rightMove = game.Move(whitePlayer, new Position(positions[1]));
+
+                            //Console.WriteLine(whitePlayer.Pieces.Count);
                         }
                         else
                         {
-                            blackPlayer.GetOwnPieces(game.Board);
-
                             blackPlayer.MovingPiece = game.Board[piecePosition.Row, piecePosition.Column];
 
                             rightMove = game.Move(blackPlayer, new Position(positions[1]));
+
+                            //Console.WriteLine(blackPlayer.Pieces.Count);
                         }
 
-                        if (!rightMove)
+                        if ( !rightMove )
                         {
                             Console.WriteLine("Ход невозможен!\n");
                         }

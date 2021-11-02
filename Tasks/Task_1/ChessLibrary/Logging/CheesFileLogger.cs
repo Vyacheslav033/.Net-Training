@@ -7,7 +7,7 @@ namespace ChessLibrary
     /// </summary>
     public class CheesFileLogger : CheesLogger
     {
-        private readonly string path = @"D:\C#\.Net-Training\Tasks\Task_1\CheesLog.txt";
+        private readonly string path = @"CheesLog.txt";
         private bool isFile = false;
 
         /// <summary>

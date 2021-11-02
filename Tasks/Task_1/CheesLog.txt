@@ -3,3 +3,8 @@
 3. White Pawn A4 beats Pawn B5
 4. Black Bishop C8 -> A6
 5. White Rook A1 beats Bishop A6
+6. Black Knight B8 beats Rook A6
+7. White Pawn B5 beats Knight A6
+
+Файлы логирования новых партий находятся в Tasks\Task_1\CheesConsoleApp\bin\Debug
+Этот файл является примером.
