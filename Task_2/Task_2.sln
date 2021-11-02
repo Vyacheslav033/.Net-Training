@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransportCompanyLibrary", "TransportCompanyLibrary\TransportCompanyLibrary.csproj", "{3CE75434-AA02-403D-A0B4-D374B2F1CFAE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTransportApp", "ConsoleTransportApp\ConsoleTransportApp.csproj", "{FF92DB61-AF7A-4C02-91B3-6AC9DA9E389A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3CE75434-AA02-403D-A0B4-D374B2F1CFAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CE75434-AA02-403D-A0B4-D374B2F1CFAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CE75434-AA02-403D-A0B4-D374B2F1CFAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CE75434-AA02-403D-A0B4-D374B2F1CFAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF92DB61-AF7A-4C02-91B3-6AC9DA9E389A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF92DB61-AF7A-4C02-91B3-6AC9DA9E389A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF92DB61-AF7A-4C02-91B3-6AC9DA9E389A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF92DB61-AF7A-4C02-91B3-6AC9DA9E389A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BA0FE867-E9B5-4F1F-BF5D-E76389D9A140}
+	EndGlobalSection
+EndGlobal
