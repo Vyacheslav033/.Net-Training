@@ -5,7 +5,7 @@ namespace TransportCompanyLibrary
     /// <summary>
     /// Виды топлива.
     /// </summary>
-    public enum Fuel
+    public enum FuelType
     {
         Gasolin,
         Diesel,

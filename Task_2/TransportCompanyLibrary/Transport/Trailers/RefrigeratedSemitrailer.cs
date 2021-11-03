@@ -1,15 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TransportCompanyLibrary
 {
     /// <summary>
     /// Полуприцеп рефрижератор.
     /// </summary>
-    public class RefrigeratedSemitrailer
+    public class RefrigeratedSemitrailer : Semitrailer
     {
+        /// <summary>
+        /// Инициализатор класса RefrigeratedSemitrailer.
+        /// </summary>
+        /// <param name="weight"> Вес. </param>
+        /// <param name="loadCapacity"> Грузоподъёмность. </param>
+        public RefrigeratedSemitrailer(float weight, int loadCapacity) : base(weight, loadCapacity)
+        {
+
+        }
     }
 }

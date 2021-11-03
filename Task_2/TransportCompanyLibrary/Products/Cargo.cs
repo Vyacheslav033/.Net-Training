@@ -41,7 +41,7 @@ namespace TransportCompanyLibrary
         /// Индексатор.
         /// </summary>
         /// <param name="index"> Индекс товара в списке. </param>
-        /// <returns> Возвращает товар. </returns>
+        /// <returns> Возвращает товар по указанному индексу. </returns>
         Product this[int index]
         {
             get

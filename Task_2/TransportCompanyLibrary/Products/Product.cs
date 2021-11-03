@@ -10,14 +10,15 @@ namespace TransportCompanyLibrary
         protected string name;
         protected int count;
         protected float weight;
+        protected MeasureUnit measure;
 
         /// <summary>
         /// Инициализатор класса Product.
         /// </summary>
-        /// <param name="name"> Наименование товара. </param>
+        /// <param name="name"> Название товара. </param>
         /// <param name="count"> Количество. </param>
-        /// <param name="weight"> Вес 1 шт. </param>
-        public Product(string name, int count, float weight)
+        /// <param name="weight"> Вес за 1 ед. измерения. </param>
+        public Product(string name, int count, float weight, MeasureUnit measure)
         {
             if (String.IsNullOrWhiteSpace(name))
             {
@@ -34,16 +35,17 @@ namespace TransportCompanyLibrary
                 throw new ArgumentNullException("Вес товара должен быть больше 0.", nameof(count));
             }
 
-            this.name = name;
+            this.name = name.Trim();
             this.count = count;
             this.weight = weight;
+            this.measure = measure;
         }
 
         /// <summary>
         /// Наименование товара.
         /// </summary>
-        public string Name 
-        { 
+        public string Name
+        {
             get { return name; }
         }
 
@@ -61,6 +63,14 @@ namespace TransportCompanyLibrary
         public float Weight
         {
             get { return weight * count; }
+        }
+
+        /// <summary>
+        /// Единица измерения товара.
+        /// </summary>
+        public MeasureUnit Measure
+        {
+            get { return measure; }
         }
     }
 }
