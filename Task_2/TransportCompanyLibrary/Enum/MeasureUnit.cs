@@ -9,9 +9,6 @@ namespace TransportCompanyLibrary
     {
         Piece,
         Kg,
-        Gram,
-        Tone,
-        Litre,
-        Millilitr
+        Litre
     }
 }

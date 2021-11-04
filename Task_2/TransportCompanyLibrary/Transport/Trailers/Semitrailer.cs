@@ -28,32 +28,32 @@ namespace TransportCompanyLibrary
                 throw new ArgumentException("Прицеп не может иметь указанную грузоподъемность.", nameof(loadCapacity));
             }
 
-            cargo = new Cargo(loadCapacity);
-
             this.weight = weight;
             this.loadCapacity = loadCapacity;
+
+            cargo = new Cargo(this);
         }
 
         /// <summary>
         /// Груз.
         /// </summary>
-        public Cargo Cargo 
+        public virtual Cargo Cargo 
         { 
             get { return cargo; }
-            set
-            {
-                if (value == null)
-                {
-                    throw new ArgumentNullException("Груз не может быть пустым.");
-                }
+            //set
+            //{
+            //    if (value == null)
+            //    {
+            //        throw new ArgumentNullException("Груз не может быть пустым.");
+            //    }
 
-                if (value.Weight > loadCapacity)
-                {
-                    throw new ArgumentException("Грузоподъёмность прицепа меньше чем вес груза.");
-                }
+            //    if (value.Weight > loadCapacity)
+            //    {
+            //        throw new ArgumentException("Грузоподъёмность прицепа меньше чем вес груза.");
+            //    }
 
-                cargo = value;
-            }
+            //    cargo = value;
+            //}
         }
 
         /// <summary>

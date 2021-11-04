@@ -17,8 +17,9 @@ namespace TransportCompanyLibrary
         /// </summary>
         /// <param name="name"> Название товара. </param>
         /// <param name="count"> Количество. </param>
-        /// <param name="weight"> Вес за 1 ед. измерения. </param>
-        public Product(string name, int count, float weight, MeasureUnit measure)
+        /// <param name="measure"> Единица измерения товара. </param>
+        /// <param name="weight"> Общий вес товара, кг. </param>
+        public Product(string name, int count, MeasureUnit measure, float weight)
         {
             if (String.IsNullOrWhiteSpace(name))
             {
@@ -35,7 +36,7 @@ namespace TransportCompanyLibrary
                 throw new ArgumentNullException("Вес товара должен быть больше 0.", nameof(count));
             }
 
-            this.name = name.Trim();
+            this.name = name.Trim().ToLower();
             this.count = count;
             this.weight = weight;
             this.measure = measure;
@@ -62,7 +63,7 @@ namespace TransportCompanyLibrary
         /// </summary>
         public float Weight
         {
-            get { return weight * count; }
+            get { return weight; }
         }
 
         /// <summary>
@@ -71,6 +72,42 @@ namespace TransportCompanyLibrary
         public MeasureUnit Measure
         {
             get { return measure; }
+        }
+
+        /// <summary>
+        /// Сравнение товара на равенство.
+        /// </summary>
+        /// <param name="obj"> Сравниваемый объект. </param>
+        /// <returns> Возвращает true в случае равенства товара, в противном случае false. </returns>
+        public override bool Equals(object obj)
+        {
+            if ( (obj != null) || (obj.GetType() == this.GetType()) )
+            {
+                Product p = (Product) obj;
+
+                return (p.Name == this.name) && (p.Count == this.count) &&
+                       (p.Weight == this.weight) && (p.Measure == this.measure);             
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Получить HashCode объекта Product.
+        /// </summary>
+        /// <returns> HashCode объекта Product. </returns>
+        public override int GetHashCode()
+        {
+            return name.GetHashCode() ^ count.GetHashCode() ^ weight.GetHashCode() ^ measure.GetHashCode();
+        }
+
+        /// <summary>
+        /// Наименование товара.
+        /// </summary>
+        /// <returns> Наименование товара. </returns>
+        public override string ToString()
+        {
+            return name;
         }
     }
 }

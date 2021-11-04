@@ -9,6 +9,7 @@ namespace TransportCompanyLibrary
     {
         Gasolin,
         Diesel,
-        Gas
+        Gas, 
+        AI95
     }
 }

@@ -14,27 +14,13 @@ namespace TransportCompanyLibrary
         /// <summary>
         /// Инициализатор класса Cargo.
         /// </summary>
-        public Cargo()
-        {
-            cargo = new List<Product>();
-
-            this.maxWeight = 0;
-        }
-
-        /// <summary>
-        /// Инициализатор класса Cargo.
-        /// </summary>
         /// <param name="maxWeight"> Максимальный вес груза. </param>
-        public Cargo(int maxWeight)
+        public Cargo(Semitrailer semitrailer)
         {
-            if (maxWeight <= 0)
-            {
-                throw new ArgumentException("Максимальный вес груза должет быть больше 0.");
-            }
-
+           
             cargo = new List<Product>();
 
-            this.maxWeight = maxWeight;
+            this.maxWeight = semitrailer.LoadCapacity;
         }
 
         /// <summary>
@@ -115,6 +101,24 @@ namespace TransportCompanyLibrary
         public void RemoveAllProduct()
         {
             cargo.Clear();
+        }
+
+        /// <summary>
+        ///  Узнать имеет ли груз заданную категорию товара.
+        /// </summary>
+        /// <param name="type"> Категория товара. </param>
+        /// <returns> Возвращает true если заданная категория товара имеется, в противном случае false. </returns>
+        public bool IsThereProductCategory(Type type)
+        {
+            foreach (Product product in cargo)
+            {
+                if (product.GetType() == type)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         /// <summary>
