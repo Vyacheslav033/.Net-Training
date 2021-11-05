@@ -1,0 +1,8 @@
+D:\C#\.Net-Training\Task_2\TransportCompanyDocumentation\bin\Debug\TransportCompanyDocumentation.dll
+D:\C#\.Net-Training\Task_2\TransportCompanyDocumentation\bin\Debug\TransportCompanyDocumentation.pdb
+D:\C#\.Net-Training\Task_2\TransportCompanyDocumentation\obj\Debug\TransportCompanyDocumentation.csproj.AssemblyReference.cache
+D:\C#\.Net-Training\Task_2\TransportCompanyDocumentation\obj\Debug\TransportCompanyDocumentation.csproj.CoreCompileInputs.cache
+D:\C#\.Net-Training\Task_2\TransportCompanyDocumentation\obj\Debug\TransportCompanyDocumentation.dll
+D:\C#\.Net-Training\Task_2\TransportCompanyDocumentation\obj\Debug\TransportCompanyDocumentation.pdb
+D:\C#\.Net-Training\Task_2\TransportCompanyDocumentation\bin\Debug\TransportCompanyLibrary.dll
+D:\C#\.Net-Training\Task_2\TransportCompanyDocumentation\bin\Debug\TransportCompanyLibrary.pdb

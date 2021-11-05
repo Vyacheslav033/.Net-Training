@@ -22,8 +22,6 @@ namespace TransportCompanyLibrary
         public Tractor(string mark, string model, float weight, int enginePower, int loadCapacity, FuelType fuelType, float fuelConsumption)
             : base(mark, model, weight, enginePower, loadCapacity, fuelType, fuelConsumption)
         {
-            // Можно добавить количество осей тягача, для расчёта правильной грузоподъёмности !!!
-
             semitrailer = null;
         }
 
@@ -80,6 +78,11 @@ namespace TransportCompanyLibrary
 
             // Реализовать !!!
             return (float) (hsan / km);
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
         }
     }
 }

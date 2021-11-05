@@ -135,5 +135,17 @@ namespace TransportCompanyLibrary
 
             return 0;
         }
+
+
+        public override string ToString()
+        {
+            return $"Mark: {mark}, " +
+                   $"Model: {model}, " +
+                   $"Weight: {weight}, " +
+                   $"EnginePower: {enginePower}, " +
+                   $"LoadCapacity: {loadCapacity}, " +
+                   $"FuelType: {fuelType}, " +
+                   $"FuelConsumption: {fuelConsumption}";
+        }
     }
 }

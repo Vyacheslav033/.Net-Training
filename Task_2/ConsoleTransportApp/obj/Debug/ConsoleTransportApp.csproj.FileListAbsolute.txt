@@ -7,4 +7,6 @@ D:\C#\.Net-Training\Task_2\ConsoleTransportApp\obj\Debug\ConsoleTransportApp.csp
 D:\C#\.Net-Training\Task_2\ConsoleTransportApp\obj\Debug\ConsoleTransportApp.csproj.CoreCompileInputs.cache
 D:\C#\.Net-Training\Task_2\ConsoleTransportApp\obj\Debug\ConsoleTransportApp.exe
 D:\C#\.Net-Training\Task_2\ConsoleTransportApp\obj\Debug\ConsoleTransportApp.pdb
+D:\C#\.Net-Training\Task_2\ConsoleTransportApp\bin\Debug\TransportCompanyDocumentation.dll
+D:\C#\.Net-Training\Task_2\ConsoleTransportApp\bin\Debug\TransportCompanyDocumentation.pdb
 D:\C#\.Net-Training\Task_2\ConsoleTransportApp\obj\Debug\ConsoleTransportApp.csproj.CopyComplete
