@@ -159,7 +159,7 @@ namespace TransportCompanyLibrary
         /// Сравнение транспортного средства на равенство.
         /// </summary>
         /// <param name="obj"> Сравниваемый объект. </param>
-        /// <returns> Возвращает true в случае равенства товара, в противном случае false. </returns>
+        /// <returns> Возвращает true в случае равенства транспорта, в противном случае false. </returns>
         public override bool Equals(object obj)
         {
             if ((obj != null) || (obj.GetType() == this.GetType()))
@@ -178,7 +178,7 @@ namespace TransportCompanyLibrary
         /// <summary>
         /// Получить HashCode объекта Transport.
         /// </summary>
-        /// <returns> HashCode объекта Product. </returns>
+        /// <returns> HashCode объекта Transport. </returns>
         public override int GetHashCode()
         {
             return mark.GetHashCode() ^ model.GetHashCode() ^ weight.GetHashCode() ^

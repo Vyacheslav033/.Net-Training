@@ -71,6 +71,42 @@ namespace TransportCompanyLibrary
         /// </summary>
         /// <param name="product"> Товар. </param>
         /// <returns> Возвращает true если товар можно догрузить, в противном случае false. </returns>
-        public abstract bool CanAddProduct(Product product);  
+        public abstract bool CanAddProduct(Product product);
+
+        /// <summary>
+        /// Сравнение прицепов на равенство.
+        /// </summary>
+        /// <param name="obj"> Сравниваемый объект. </param>
+        /// <returns> Возвращает true в случае равенства прицепов, в противном случае false. </returns>
+        public override bool Equals(object obj)
+        {
+            if ((obj != null) || (obj.GetType() == this.GetType()))
+            {
+                Semitrailer s = (Semitrailer)obj;
+
+                return (s.Weight == this.weight) && (s.LoadCapacity == this.loadCapacity);
+                       
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Получить HashCode объекта Semitrailer.
+        /// </summary>
+        /// <returns> HashCode объекта Semitrailer. </returns>
+        public override int GetHashCode()
+        {
+            return weight.GetHashCode() ^ loadCapacity;
+        }
+
+        /// <summary>
+        /// Тип прицепа.
+        /// </summary>
+        /// <returns> Тип прицепа. </returns>
+        public override string ToString()
+        {
+            return this.GetType().Name;
+        }
     }
 }
