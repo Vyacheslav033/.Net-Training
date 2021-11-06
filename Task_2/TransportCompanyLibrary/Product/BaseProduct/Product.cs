@@ -102,12 +102,15 @@ namespace TransportCompanyLibrary
         }
 
         /// <summary>
-        /// Наименование товара.
+        /// Информация о товаре.
         /// </summary>
-        /// <returns> Наименование товара. </returns>
+        /// <returns> Информация о товаре. </returns>
         public override string ToString()
         {
-            return name;
+            return $"Name: {name}, " +
+                   $"Count: {count}, " +
+                   $"Weight: {weight}, " +
+                   $"Measure: {measure}";
         }
     }
 }

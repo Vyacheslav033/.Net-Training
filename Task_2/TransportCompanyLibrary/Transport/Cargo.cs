@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using ProductLibrary;
 
 namespace TransportCompanyLibrary
 {
@@ -9,18 +10,38 @@ namespace TransportCompanyLibrary
     public class Cargo
     {
         private List<Product> cargo;
-        private int maxWeight;
+        private Semitrailer semitrailer;
 
         /// <summary>
         /// Инициализатор класса Cargo.
         /// </summary>
-        /// <param name="maxWeight"> Максимальный вес груза. </param>
+        /// <param name="semitrailer"> Прицеп для груза. </param>
         public Cargo(Semitrailer semitrailer)
         {
-           
-            cargo = new List<Product>();
+            if (semitrailer == null)
+            {
+                throw new ArgumentNullException("Прицеп не был передан.");
+            }
 
-            this.maxWeight = semitrailer.LoadCapacity;
+            this.semitrailer = semitrailer;
+
+            cargo = new List<Product>();
+        }
+
+        /// <summary>
+        /// Список товара.
+        /// </summary>
+        public List<Product> Product
+        { 
+            get { return cargo; }
+        }
+
+        /// <summary>
+        /// Количество товара.
+        /// </summary>
+        public int ProductCount
+        {
+            get { return cargo.Count; }
         }
 
         /// <summary>
@@ -28,17 +49,25 @@ namespace TransportCompanyLibrary
         /// </summary>
         /// <param name="index"> Индекс товара в списке. </param>
         /// <returns> Возвращает товар по указанному индексу. </returns>
-        Product this[int index]
+        public Product this[int index]
         {
             get
             { 
                 if ( (index < 0) || (index > cargo.Count - 1) )
                 {
-                    throw new ArgumentException("Индекс выходит за пределы диапазона.", nameof(index));
+                    throw new ArgumentException("Индекс товара выходит за пределы диапазона груза.", nameof(index));
                 }
 
                 return cargo[index];
             }
+        }
+
+        /// <summary>
+        /// Тип прицепа хранящего груз.
+        /// </summary>
+        public Type SemitrailerType
+        {
+            get { return semitrailer.GetType(); }
         }
 
         /// <summary>
@@ -53,28 +82,24 @@ namespace TransportCompanyLibrary
         /// Добавить товар.
         /// </summary>
         /// <param name="product"> Товар. </param>
-        /// <returns> Возвращает true если товар добавлен, в противном случае false. </returns>
-        public bool AddProduct(Product product)
-        {
-            if (product == null)
+        public void AddProduct(Product product)
+        {        
+            if ( product == null )
             {
-                return false;
+                throw new ArgumentNullException("Товар не был передан.");
             }
 
-            if (maxWeight == 0)
+            if ( !semitrailer.CanAddProduct(product) )
             {
-                cargo.Add(product);
-
-                return true;
-            }
-            else if (CalculateWeight() + product.Weight <= maxWeight)
-            {
-                cargo.Add(product);
-
-                return true;
+                throw new ArgumentException("Данный тип прицепа не может перевозить передаваемый товар.");
             }
 
-            return false;
+            if ( (CalculateWeight() + product.Weight) > semitrailer.LoadCapacity)
+            {
+                throw new ArgumentException("Товар на может быть добавлен, так как превышается грузоподъемность прицепа.");
+            }
+
+            cargo.Add(product);
         }
 
         /// <summary>
@@ -93,6 +118,20 @@ namespace TransportCompanyLibrary
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// Удалить конкретный товар по индексу.
+        /// </summary>
+        /// <param name="index"> Индекс товара. </param>
+        public void RemoveProductByIndex(int index)
+        {
+            if ((index < 0) || (index > cargo.Count - 1))
+            {
+                throw new ArgumentException("Индекс товара выходит за пределы диапазона груза.", nameof(index));
+            }
+
+            cargo.RemoveAt(index);
         }
 
         /// <summary>

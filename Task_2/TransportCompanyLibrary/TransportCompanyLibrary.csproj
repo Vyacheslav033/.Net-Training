@@ -45,8 +45,10 @@
     <Compile Include="Enum\MeasureUnit.cs" />
     <Compile Include="Products\Foodstuff.cs" />
     <Compile Include="Products\Fuel.cs" />
+    <Compile Include="Products\Mercury.cs" />
     <Compile Include="Products\Milk.cs" />
     <Compile Include="Products\ProductWithThermalCondition.cs" />
+    <Compile Include="Products\Сhemicals.cs" />
     <Compile Include="Transport\Cargo.cs" />
     <Compile Include="Products\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

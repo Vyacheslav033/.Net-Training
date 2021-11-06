@@ -6,3 +6,4 @@ D:\C#\.Net-Training\Task_2\TransportCompanyDocumentation\obj\Debug\TransportComp
 D:\C#\.Net-Training\Task_2\TransportCompanyDocumentation\obj\Debug\TransportCompanyDocumentation.pdb
 D:\C#\.Net-Training\Task_2\TransportCompanyDocumentation\bin\Debug\TransportCompanyLibrary.dll
 D:\C#\.Net-Training\Task_2\TransportCompanyDocumentation\bin\Debug\TransportCompanyLibrary.pdb
+D:\C#\.Net-Training\Task_2\TransportCompanyDocumentation\obj\Debug\TransportCompanyDocumentation.csproj.CopyComplete

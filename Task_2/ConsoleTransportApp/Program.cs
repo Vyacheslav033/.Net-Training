@@ -9,7 +9,7 @@ namespace ConsoleTransportApp
     {
         static void Main(string[] args)
         {
-            //var tr = new Tractor("volvo", "fx200", 3000, 500, 5000,Fuel.Gasolin, 30);
+            //var tr = new Tractor("volvo", "fx200", 3000, 500, 700, 5000,FuelType.Gasolin, 30);
 
             //tr.Semitrailer = new TentedSemitrailer(700, 2000); ;
 
@@ -17,29 +17,59 @@ namespace ConsoleTransportApp
 
             //Console.WriteLine(rs);
 
-            //var milk1 = new Milk("Молоко", 500, MeasureUnit.Litre, 550, -20, 10);
+            try
+            {
+                var milk = new Milk("Молоко", 500, MeasureUnit.Litre, 2100, -10, 10);
+                var milk2 = new Milk("Молоко", 300, MeasureUnit.Litre, 500, -10, 10);
+                var mercury = new Mercury("Ртуть", 500, MeasureUnit.Litre, 550);
+                var mercury2 = new Mercury("wew", 1000, MeasureUnit.Litre, 550);
+                var fuel = new Fuel("Ртуть", 500, MeasureUnit.Litre, 550);
+
+                var semitrailer = new RefrigeratedSemitrailer(700, 2000);
+
+
+                semitrailer.Cargo.AddProduct(milk);
+
+                semitrailer.Cargo.AddProduct(milk2);
+                semitrailer.Cargo.AddProduct(mercury2);
+
+
+
+                foreach (Product product in semitrailer.Cargo.Product)
+                {
+                    Console.WriteLine(product);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+
 
             //Console.WriteLine(milk1);
 
-            var transport = new List<Transport>()
-            {
-                new Tractor("volvo", "fx200", 3000, 500, 5000, FuelType.Gasolin, 50),
-                new Tractor("Man", "i2000", 3500, 500, 5000, FuelType.Gas, 55),
-                new Tractor("Белаз", "1", 5000, 2000, 5000, FuelType.Gasolin, 300),
-            };
-
-            string path = @"D:\C#\.Net-Training\Task_2\CompanyTransport1.xml";
-
-            WriteInXmlFail w = new WriteInXmlFail(path);
-            w.WriteTransportInXml(transport);
-
-            //ReadFromXmlFail r = new ReadFromXmlFail(path);
-
-            //var list = r.ReadTransportFromXml();
-
-            //foreach (Tractor tractor in list)
+            //var transport = new List<Transport>()
             //{
-            //    Console.WriteLine(tractor);
+            //    new Tractor("volvo", "fx200", 3000, 500, 220, 5000, FuelType.Gasolin, 24.5f),
+            //    new Tractor("Man", "i2000", 3500, 500, 450, 5000, FuelType.Gas, 55),
+            //    new Tractor("Белаз", "1", 5000, 2000, 5000, 1000, FuelType.Gasolin, 300),
+            //    new Tractor("DAF", "3", 4000, 2000, 5000, 900, FuelType.Diesel, 50),
+            //};
+
+            ////string path = @"D:\C#\.Net-Training\Task_2\CompanyTransport.xml";
+
+            ////WriteInXmlFail w = new WriteInXmlFail(path);
+            ////w.WriteTransportInXml(transport);
+
+            ////ReadFromXmlFail r = new ReadFromXmlFail(path);
+
+            ////var list = r.ReadTransportFromXml();
+
+            //foreach (Tractor tractor in transport)
+            //{
+            //    //Console.WriteLine(tractor);
+            //    Console.WriteLine(tractor.GetConsumptionPerDistance(90));
             //}
 
 

@@ -11,6 +11,7 @@ namespace TransportCompanyLibrary
         protected string model;
         protected float weight;
         protected int enginePower;
+        protected int mileage;
         protected int loadCapacity;
         protected FuelType fuelType;
         protected float fuelConsumption;
@@ -22,10 +23,11 @@ namespace TransportCompanyLibrary
         /// <param name="model"> Модель. </param>
         /// <param name="weight"> Вес. </param>
         /// <param name="enginePower"> Мощность двигателя. </param>
+        /// <param name="mileage"> Пробег. </param>
         /// <param name="loadCapacity"> Грузоподъёмность. </param>
         /// <param name="fuelType"> Вид топлива. </param>
         /// <param name="fuelConsumption"> Расход топлива. </param>
-        public Transport(string mark, string model, float weight, int enginePower, int loadCapacity, FuelType fuelType, float fuelConsumption)
+        public Transport(string mark, string model, float weight, int enginePower, int mileage, int loadCapacity, FuelType fuelType, float fuelConsumption)
         {
             if (String.IsNullOrWhiteSpace(mark))
             {
@@ -48,6 +50,11 @@ namespace TransportCompanyLibrary
                 throw new ArgumentException("Транспортное средство не может иметь указанную мощность двигателя.", nameof(enginePower));
             }
 
+            if (mileage < 0)
+            {
+                throw new ArgumentException("Транспортное средство не может иметь указанный пробег.", nameof(mileage));
+            }
+
             // Максимальную грузоподъемность сравнил с белазом.
             if ((loadCapacity < 500) || (loadCapacity > 500000))
             {
@@ -63,6 +70,7 @@ namespace TransportCompanyLibrary
             this.model = model;
             this.weight = weight;
             this.enginePower = enginePower;
+            this.mileage = mileage;
             this.loadCapacity = loadCapacity;
             this.fuelType = fuelType;
             this.fuelConsumption = fuelConsumption;
@@ -87,7 +95,7 @@ namespace TransportCompanyLibrary
         /// <summary>
         /// Вес кг.
         /// </summary>
-        public virtual float Weight
+        public float Weight
         {
             get { return weight; }
         }  
@@ -101,9 +109,17 @@ namespace TransportCompanyLibrary
         }
 
         /// <summary>
+        /// Пробег.
+        /// </summary>
+        public int Mileage
+        {
+            get { return mileage; }
+        }
+
+        /// <summary>
         /// Грузоподъёмность кг.
         /// </summary>
-        public virtual int LoadCapacity
+        public int LoadCapacity
         {
             get { return loadCapacity; }
         }
@@ -128,21 +144,59 @@ namespace TransportCompanyLibrary
         /// Расчитать расход топлива на расстояние.
         /// </summary>
         /// <param name="km"> Расстояние в км. </param>
-        /// <returns> Расход топлива. </returns>
+        /// <returns> Значение расход топлива. </returns>
         public virtual float GetConsumptionPerDistance(int km)
         {
-            // Реализовать !!!
+            if (km < 1)
+            {
+                return 0;
+            }
 
-            return 0;
+            return (fuelConsumption * mileage) / km;
         }
 
+        /// <summary>
+        /// Сравнение транспортного средства на равенство.
+        /// </summary>
+        /// <param name="obj"> Сравниваемый объект. </param>
+        /// <returns> Возвращает true в случае равенства товара, в противном случае false. </returns>
+        public override bool Equals(object obj)
+        {
+            if ((obj != null) || (obj.GetType() == this.GetType()))
+            {
+                Transport p = (Transport) obj;
 
+                return (p.Mark == this.mark) && (p.Model == this.model) &&
+                       (p.Weight == this.weight) && (p.EnginePower == this.enginePower) &&
+                       (p.Mileage == this.mileage) && (p.LoadCapacity == this.loadCapacity) &&
+                       (p.FuelType == this.fuelType) && (p.FuelConsumption == this.fuelConsumption);
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Получить HashCode объекта Transport.
+        /// </summary>
+        /// <returns> HashCode объекта Product. </returns>
+        public override int GetHashCode()
+        {
+            return mark.GetHashCode() ^ model.GetHashCode() ^ weight.GetHashCode() ^
+                   enginePower ^ mileage ^ loadCapacity ^
+                   fuelType.GetHashCode() ^ FuelConsumption.GetHashCode();
+        }
+
+        /// <summary>
+        /// Характеристики транспортного средства.
+        /// </summary>
+        /// <returns> Характеристики транспортного средства. </returns>
         public override string ToString()
         {
             return $"Mark: {mark}, " +
                    $"Model: {model}, " +
                    $"Weight: {weight}, " +
                    $"EnginePower: {enginePower}, " +
+                   $"Mileage: {mileage}, " +
                    $"LoadCapacity: {loadCapacity}, " +
                    $"FuelType: {fuelType}, " +
                    $"FuelConsumption: {fuelConsumption}";

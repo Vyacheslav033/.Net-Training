@@ -49,6 +49,7 @@ namespace TransportCompanyDocumentation
                     writer.WriteElementString("Model", transport[i].Model);
                     writer.WriteElementString("Weight", transport[i].Weight.ToString());
                     writer.WriteElementString("EnginePower", transport[i].EnginePower.ToString());
+                    writer.WriteElementString("Mileage", transport[i].Mileage.ToString());
                     writer.WriteElementString("LoadCapacity", transport[i].LoadCapacity.ToString());
                     writer.WriteElementString("FuelType", transport[i].FuelType.ToString());
                     writer.WriteElementString("FuelConsumption", transport[i].FuelConsumption.ToString());

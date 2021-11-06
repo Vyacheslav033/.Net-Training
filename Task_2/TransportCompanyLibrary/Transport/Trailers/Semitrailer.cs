@@ -37,23 +37,9 @@ namespace TransportCompanyLibrary
         /// <summary>
         /// Груз.
         /// </summary>
-        public virtual Cargo Cargo 
+        public Cargo Cargo 
         { 
-            get { return cargo; }
-            //set
-            //{
-            //    if (value == null)
-            //    {
-            //        throw new ArgumentNullException("Груз не может быть пустым.");
-            //    }
-
-            //    if (value.Weight > loadCapacity)
-            //    {
-            //        throw new ArgumentException("Грузоподъёмность прицепа меньше чем вес груза.");
-            //    }
-
-            //    cargo = value;
-            //}
+            get { return cargo; }          
         }
 
         /// <summary>
@@ -79,5 +65,12 @@ namespace TransportCompanyLibrary
         {
             get { return loadCapacity; }
         }
+
+        /// <summary>
+        /// Проверка на возможность догрузги товара с учётом различных видов прицепов.
+        /// </summary>
+        /// <param name="product"> Товар. </param>
+        /// <returns> Возвращает true если товар можно догрузить, в противном случае false. </returns>
+        public abstract bool CanAddProduct(Product product);  
     }
 }

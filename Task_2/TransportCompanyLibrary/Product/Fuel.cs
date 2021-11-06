@@ -7,7 +7,8 @@ namespace TransportCompanyLibrary
     /// </summary>
     public class Fuel : Product
     {
-        public Fuel(string name, int count, MeasureUnit measure, float weight) : base(name, count, measure, weight)
+        public Fuel(string name, int count, MeasureUnit measure, float weight)
+            : base(name, count, measure, weight)
         { }     
     }
 }

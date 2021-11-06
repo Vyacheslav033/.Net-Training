@@ -7,8 +7,8 @@ namespace TransportCompanyLibrary
     /// </summary>
     public abstract class ProductWithThermalCondition : Product
     {
-        private int minGradus;
-        private int maxGradus;
+        protected int minGradus;
+        protected int maxGradus;
 
         /// <summary>
         /// Инициализатор класса ProductWithThermalCondition.
@@ -89,9 +89,9 @@ namespace TransportCompanyLibrary
         }
 
         /// <summary>
-        /// Наименование товара.
+        /// Информация о товаре.
         /// </summary>
-        /// <returns> Наименование товара. </returns>
+        /// <returns> Информация о товаре. </returns>
         public override string ToString()
         {
             return base.ToString();

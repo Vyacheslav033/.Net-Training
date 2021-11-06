@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<СompanyTransport>
+		<Transport id="0">
+				<Type>Tractor</Type>
+				<Mark>volvo</Mark>
+				<Model>fx200</Model>
+				<Weight>3000</Weight>
+				<EnginePower>500</EnginePower>
+				<Mileage>300</Mileage>
+				<LoadCapacity>5000</LoadCapacity>
+				<FuelType>Gasolin</FuelType>
+				<FuelConsumption>50</FuelConsumption>
+		</Transport>
+		<Transport id="1">
+				<Type>Tractor</Type>
+				<Mark>Man</Mark>
+				<Model>i2000</Model>
+				<Weight>3500</Weight>
+				<EnginePower>500</EnginePower>
+				<Mileage>450</Mileage>
+				<LoadCapacity>5000</LoadCapacity>
+				<FuelType>Gas</FuelType>
+				<FuelConsumption>55</FuelConsumption>
+		</Transport>
+		<Transport id="2">
+				<Type>Tractor</Type>
+				<Mark>Белаз</Mark>
+				<Model>1</Model>
+				<Weight>5000</Weight>
+				<EnginePower>2000</EnginePower>
+				<Mileage>5000</Mileage>
+				<LoadCapacity>1000</LoadCapacity>
+				<FuelType>Gasolin</FuelType>
+				<FuelConsumption>300</FuelConsumption>
+		</Transport>
+		<Transport id="3">
+				<Type>Tractor</Type>
+				<Mark>DAF</Mark>
+				<Model>3</Model>
+				<Weight>4000</Weight>
+				<EnginePower>2000</EnginePower>
+				<Mileage>5000</Mileage>
+				<LoadCapacity>900</LoadCapacity>
+				<FuelType>Diesel</FuelType>
+				<FuelConsumption>300</FuelConsumption>
+		</Transport>
+</СompanyTransport>

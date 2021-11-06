@@ -40,6 +40,7 @@ namespace TransportCompanyDocumentation
                 string model = "";
                 float weight = 0;
                 int enginePower = 0;
+                int mileage = 0;
                 int loadCapacity = 0;
                 FuelType fuelType = FuelType.Gasolin;
                 float fuelConsumption = 0;
@@ -62,7 +63,9 @@ namespace TransportCompanyDocumentation
                             case "Weight": weight = Convert.ToSingle(reader.Value);
                                 break;
                             case "EnginePower": enginePower = Convert.ToInt32(reader.Value);
-                                break;                          
+                                break;
+                            case "Mileage": mileage = Convert.ToInt32(reader.Value);
+                                break;                                
                             case "LoadCapacity": loadCapacity = Convert.ToInt32(reader.Value);
                                 break;
                             case "FuelType":
@@ -79,7 +82,7 @@ namespace TransportCompanyDocumentation
 
                     if (isEnd)
                     {
-                        transport.Add(new Tractor(mark, model, weight, enginePower, loadCapacity, fuelType, fuelConsumption));
+                        transport.Add(new Tractor(mark, model, weight, enginePower, mileage, loadCapacity, fuelType, fuelConsumption));
 
                         isEnd = false;
                     }     
