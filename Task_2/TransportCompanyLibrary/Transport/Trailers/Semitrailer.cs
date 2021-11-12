@@ -101,12 +101,14 @@ namespace TransportCompanyLibrary
         }
 
         /// <summary>
-        /// Тип прицепа.
+        /// Информация о прицепе.
         /// </summary>
         /// <returns> Тип прицепа. </returns>
         public override string ToString()
         {
-            return this.GetType().Name;
+            return $" Semitrailer (Type: {this.GetType().Name}, " +
+                $"Weight: {weight}, " +
+                $"LoadCapacity {loadCapacity})";
         }
     }
 }

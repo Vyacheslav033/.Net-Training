@@ -192,14 +192,15 @@ namespace TransportCompanyLibrary
         /// <returns> Характеристики транспортного средства. </returns>
         public override string ToString()
         {
-            return $"Mark: {mark}, " +
+            return $"{this.GetType().Name} (" +
+                   $"Mark: {mark}, " +
                    $"Model: {model}, " +
                    $"Weight: {weight}, " +
                    $"EnginePower: {enginePower}, " +
                    $"Mileage: {mileage}, " +
                    $"LoadCapacity: {loadCapacity}, " +
                    $"FuelType: {fuelType}, " +
-                   $"FuelConsumption: {fuelConsumption}";
+                   $"FuelConsumption: {fuelConsumption})";
         }
     }
 }
