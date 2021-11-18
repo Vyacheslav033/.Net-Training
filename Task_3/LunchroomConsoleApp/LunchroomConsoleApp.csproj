@@ -49,5 +49,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LunchroomLibrary\LunchroomLibrary.csproj">
+      <Project>{bd09498e-e507-4f0b-ae32-03579a9ea92f}</Project>
+      <Name>LunchroomLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

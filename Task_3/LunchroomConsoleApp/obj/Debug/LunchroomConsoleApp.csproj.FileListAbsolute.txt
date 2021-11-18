@@ -1,0 +1,9 @@
+D:\C#\.Net-Training\Task_3\LunchroomConsoleApp\bin\Debug\LunchroomConsoleApp.exe.config
+D:\C#\.Net-Training\Task_3\LunchroomConsoleApp\bin\Debug\LunchroomConsoleApp.exe
+D:\C#\.Net-Training\Task_3\LunchroomConsoleApp\bin\Debug\LunchroomConsoleApp.pdb
+D:\C#\.Net-Training\Task_3\LunchroomConsoleApp\bin\Debug\LunchroomLibrary.dll
+D:\C#\.Net-Training\Task_3\LunchroomConsoleApp\bin\Debug\LunchroomLibrary.pdb
+D:\C#\.Net-Training\Task_3\LunchroomConsoleApp\obj\Debug\LunchroomConsoleApp.csproj.AssemblyReference.cache
+D:\C#\.Net-Training\Task_3\LunchroomConsoleApp\obj\Debug\LunchroomConsoleApp.csproj.CoreCompileInputs.cache
+D:\C#\.Net-Training\Task_3\LunchroomConsoleApp\obj\Debug\LunchroomConsoleApp.exe
+D:\C#\.Net-Training\Task_3\LunchroomConsoleApp\obj\Debug\LunchroomConsoleApp.pdb

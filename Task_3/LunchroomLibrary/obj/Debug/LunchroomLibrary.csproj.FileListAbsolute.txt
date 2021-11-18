@@ -1,0 +1,6 @@
+D:\C#\.Net-Training\Task_3\LunchroomLibrary\bin\Debug\LunchroomLibrary.dll
+D:\C#\.Net-Training\Task_3\LunchroomLibrary\bin\Debug\LunchroomLibrary.pdb
+D:\C#\.Net-Training\Task_3\LunchroomLibrary\obj\Debug\LunchroomLibrary.csproj.AssemblyReference.cache
+D:\C#\.Net-Training\Task_3\LunchroomLibrary\obj\Debug\LunchroomLibrary.csproj.CoreCompileInputs.cache
+D:\C#\.Net-Training\Task_3\LunchroomLibrary\obj\Debug\LunchroomLibrary.dll
+D:\C#\.Net-Training\Task_3\LunchroomLibrary\obj\Debug\LunchroomLibrary.pdb
