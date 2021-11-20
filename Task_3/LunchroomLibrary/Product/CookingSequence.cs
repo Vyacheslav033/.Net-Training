@@ -9,27 +9,45 @@ namespace LunchroomLibrary
     public class CookingSequence : GenericList<Processing>
     {
         /// <summary>
-        /// Общая стоимость обработок.
+        /// Стоимость обработки.
         /// </summary>
-        public double ProcessingsPrice
-        {
-            get { return CalculateProcessingsPrice(); }
-        }
-       
+        public double ProcessingCost { get => CalculateProcessingCost(); }
+
         /// <summary>
-        /// Посчитать общую стоимость обработок.
+        /// Время обработки.
         /// </summary>
-        /// <returns> Возвращает общую стоимость обработок. </returns>
-        private double CalculateProcessingsPrice()
+        public double ProcessingTime { get => CalculateProcessingTime(); }
+
+        /// <summary>
+        /// Посчитать стоимость обработки.
+        /// </summary>
+        /// <returns> Возвращает стоимость обработки. </returns>
+        private double CalculateProcessingCost()
         {
-            double price = 0;
+            double cost = 0;
 
             foreach (Processing processing in list)
             {
-                price += processing.Price;
+                cost += processing.Cost;
             }
 
-            return price;
+            return cost;
+        }
+
+        /// <summary>
+        /// Посчитать время обработки.
+        /// </summary>
+        /// <returns> Возвращает время обработки. </returns>
+        private double CalculateProcessingTime()
+        {
+            double time = 0;
+
+            foreach (Processing processing in list)
+            {
+                time += processing.Duration;
+            }
+
+            return time;
         }
     }
 }

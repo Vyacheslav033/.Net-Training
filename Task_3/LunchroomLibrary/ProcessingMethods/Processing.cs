@@ -7,56 +7,47 @@ namespace LunchroomLibrary
     /// </summary>
     public abstract class Processing
     {
-        public ProcessingType processingType;
-        public double duration;
-        public double price;
+        private ProcessingType processingType;
+        private double duration;
+        private double cost;
 
         /// <summary>
         /// Инициализатор класса Processing.
         /// </summary>
         /// <param name="processingType"> Вид обработки. </param>
         /// <param name="duration"> Длительность обработки. </param>
-        /// <param name="price"> Стоимость обработки. </param>
-        public Processing(ProcessingType processingType, double duration, double price)
+        /// <param name="cost"> Стоимость обработки. </param>
+        public Processing(ProcessingType processingType, double duration, double cost)
         {          
             if (duration <= 0)
             {
                 throw new ArgumentNullException("Длительность обработки указана не верно.", nameof(duration));
             }
 
-            if (price <= 0)
+            if (cost <= 0)
             {
-                throw new ArgumentNullException("Стоимость обработки указана не верно.", nameof(price));
+                throw new ArgumentNullException("Стоимость обработки указана не верно.", nameof(cost));
             }
 
             this.processingType = processingType;
             this.duration = duration;
-            this.price = price;
+            this.cost = cost;
         }
 
         /// <summary>
         /// Вид обработки.
         /// </summary>
-        public ProcessingType ProcessingType
-        {
-            get { return processingType; }
-        }
+        public ProcessingType ProcessingType { get => processingType; }
 
         /// <summary>
         /// Длительность.
         /// </summary>
-        public double Duration
-        {
-            get { return duration; }
-        }
+        public double Duration { get => duration; }
 
         /// <summary>
         /// Стоимость.
         /// </summary>
-        public double Price
-        {
-            get { return price; }
-        }
+        public double Cost { get => cost; }
 
         /// <summary>
         /// Обработать ингридиент.

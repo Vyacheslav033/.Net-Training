@@ -5,24 +5,37 @@ namespace LunchroomLibrary
     /// <summary>
     /// Ингридиент.
     /// </summary>
-    public abstract class Ingridient : Product
+    public abstract class Ingridient
     {
+        protected string name;
+        protected double cost;
         private double count;
-
         private StorageConditions storageConditions;
 
         /// <summary>
         /// Инициализатор класса Ingridient.
         /// </summary>
         /// <param name="name"> Наименование ингридиента. </param>
-        /// <param name="price"> Цена ингридиента. </param>
+        /// <param name="cost"> Стоимость ингридиента. </param>
         /// <param name="count"> Количество ингридиента, гр.</param>
-        public Ingridient(string name, double price, double count, StorageConditions storageConditions)
-            : base(name, price)
+        public Ingridient(string name, double cost, double count, StorageConditions storageConditions)
         {
+            if (String.IsNullOrWhiteSpace(name))
+            {
+                throw new ArgumentException("Название ингридиента не было указано.",
+                    nameof(name));
+            }
+
+            if (cost <= 0)
+            {
+                throw new ArgumentException("Стоимость ингридиента указана не верно.",
+                    nameof(cost));
+            }
+         
             if (count <= 0)
             {
-                throw new ArgumentException("Количество ингридиента указано не верно.", nameof(count));
+                throw new ArgumentException("Количество ингридиента указано не верно.",
+                    nameof(count));
             }
 
             if (storageConditions == null)
@@ -31,9 +44,21 @@ namespace LunchroomLibrary
                     nameof(storageConditions));
             }
 
+            this.name = name;
+            this.cost = cost;
             this.count = count;
             this.storageConditions = storageConditions;
         }
+
+        /// <summary>
+        /// Наименование.
+        /// </summary>
+        public string Name { get => name; }
+
+        /// <summary>
+        /// Стоимость.
+        /// </summary>
+        public double Cost { get => cost; }
 
         /// <summary>
         /// Количество, гр.
@@ -52,11 +77,12 @@ namespace LunchroomLibrary
         /// <returns> Возвращает true в случае равенства объектов, в противном случае false. </returns>
         public override bool Equals(object obj)
         {
-            if ( base.Equals(obj) )
+            if ( (obj != null) && (obj.GetType() == GetType()) )
             {
-                Ingridient ingridient = (Ingridient)obj;
+                Ingridient i = (Ingridient)obj;
 
-                return (this.count == ingridient.Count) && (this.storageConditions.Equals(ingridient));
+                return (name == i.Name) && (cost == i.Cost) &&
+                       (count == i.Count) && (storageConditions.Equals(i));
             }
 
             return false;
@@ -68,7 +94,8 @@ namespace LunchroomLibrary
         /// <returns> HashCode объекта Ingridient. </returns>
         public override int GetHashCode()
         {
-            return base.GetHashCode() ^ count.GetHashCode() ^ storageConditions.GetHashCode();
+            return name.GetHashCode() ^ cost.GetHashCode() ^
+                   count.GetHashCode() ^ storageConditions.GetHashCode();
         }
 
         /// <summary>
@@ -77,7 +104,8 @@ namespace LunchroomLibrary
         /// <returns> Информация об ингридиенте. </returns>
         public override string ToString()
         {
-            return base.ToString() +
+            return $"Name: {name}, " +
+                   $"Cost: {cost}, " +
                    $"Count: {count}, " +
                    storageConditions.ToString();
         }

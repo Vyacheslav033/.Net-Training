@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace LunchroomLibrary
 {
@@ -9,28 +8,27 @@ namespace LunchroomLibrary
     public class Structure : GenericList<Ingridient>
     {
         /// <summary>
-        /// Цена всех ингридиентов состава.
+        /// Стоимость ингридиентов.
         /// </summary>
-        public double TotalPrice
+        public double IngredientsCost 
         {
-            get { return CalculateIngridientsPrice(); }
+            get { return CalculateIngredientsCost(); }
         }
 
-
         /// <summary>
-        /// Посчитать общую цену ингридиентов.
+        /// Посчитать стоимость ингридиентов.
         /// </summary>
-        /// <returns> Возвращает общую цену ингридиентов. </returns>
-        private double CalculateIngridientsPrice()
+        /// <returns> Возвращает стоимость ингридиентов. </returns>
+        private double CalculateIngredientsCost()
         {
-            double price = 0;
+            double cost = 0;
 
             foreach (Ingridient ingridient in list)
             {
-                price += ingridient.Price;
+                cost += ingridient.Cost;
             }
 
-            return price;
+            return cost;
         }
     }
 }

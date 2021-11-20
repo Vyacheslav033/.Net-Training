@@ -24,9 +24,6 @@ namespace LunchroomLibrary
         /// </summary>
         public int Count { get => list.Count; }
 
-
-        
-
         /// <summary>
         /// Индексатор.
         /// </summary>
@@ -102,9 +99,6 @@ namespace LunchroomLibrary
         public void RemoveAllObjects()
         {
             list.Clear();
-        }
-
-        
-
+        }     
     }
 }
