@@ -4,7 +4,7 @@ namespace LunchroomLibrary
 {
 
     /// <summary>
-    /// Продукция.
+    /// Продукт.
     /// </summary>
     public abstract class Product
     {
@@ -26,7 +26,7 @@ namespace LunchroomLibrary
 
             if (price <= 0)
             {
-                throw new ArgumentNullException("Цена продукта указана не верно.", nameof(price));
+                throw new ArgumentException("Цена продукта указана не верно.", nameof(price));
             }
 
             this.name = name;
@@ -36,20 +36,19 @@ namespace LunchroomLibrary
         /// <summary>
         /// Наименование.
         /// </summary>
-        public string Name
-        {
-            get { return name; }
-        }
+        public string Name { get => name; }
+  
 
         /// <summary>
         /// Стоимость.
         /// </summary>
-        public double Price
-        {
-            get { return price; }
-        }
+        public double Price { get => price; }
 
-
+        /// <summary>
+        /// Сравнение продуктов на равенство.
+        /// </summary>
+        /// <param name="obj"> Сравниваемый объект. </param>
+        /// <returns> Возвращает true в случае равенства объектов, в противном случае false. </returns>
         public override bool Equals(object obj)
         {
             if ( (obj != null) && (obj.GetType() == this.GetType()) )
@@ -62,6 +61,24 @@ namespace LunchroomLibrary
             return false;
         }
 
+        /// <summary>
+        /// Получить HashCode объекта Product.
+        /// </summary>
+        /// <returns> HashCode объекта Product. </returns>
+        public override int GetHashCode()
+        {
+            return name.GetHashCode() ^ price.GetHashCode();
+        }
+
+        /// <summary>
+        /// Информация о продукте.
+        /// </summary>
+        /// <returns> Информация о продукте. </returns>
+        public override string ToString()
+        {
+            return $"Name: {name}, " +
+                   $"Price: {price}, ";
+        }
     }
 }
 
