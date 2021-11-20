@@ -60,7 +60,7 @@ namespace LunchroomLibrary
         /// Добавить объект.
         /// </summary>
         /// <param name="obj"> Объект. </param>
-        public virtual void AddObject(T obj)
+        public void AddObject(T obj)
         {
             if (obj == null)
             {

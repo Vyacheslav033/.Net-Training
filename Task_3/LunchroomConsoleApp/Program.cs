@@ -22,9 +22,6 @@ namespace LunchroomConsoleApp
             pizza.CookingSequence.AddObject(new Processing(ProcessingType.Beat, 5, 1));
             pizza.CookingSequence.AddObject(new Processing(ProcessingType.Fry, 7, 0.50));
 
-
-
-
             Console.WriteLine(pizza);
             Console.WriteLine("IngredientsCount - " + pizza.Structure.Count);
             Console.WriteLine("IngredientsCost - " + pizza.Structure.IngredientsCost);
