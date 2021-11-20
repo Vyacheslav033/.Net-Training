@@ -20,6 +20,11 @@ namespace LunchroomLibrary
         }
 
         /// <summary>
+        /// Список объектов.
+        /// </summary>
+        public List<T> List { get => list; }
+
+        /// <summary>
         /// Количество объектов.
         /// </summary>
         public int Count { get => list.Count; }
@@ -55,7 +60,7 @@ namespace LunchroomLibrary
         /// Добавить объект.
         /// </summary>
         /// <param name="obj"> Объект. </param>
-        public void AddObject(T obj)
+        public virtual void AddObject(T obj)
         {
             if (obj == null)
             {

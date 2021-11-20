@@ -12,10 +12,36 @@ namespace LunchroomConsoleApp
         static void Main(string[] args)
         {
 
-            var product1 = new Banana("Груша", 101);
-            var product2 = new Banana("Яблоко", 0.9);
+            var pizza = new Dish("Пицца");
 
-            Console.WriteLine(product1.Equals(product2));
+            Console.WriteLine();
+
+            pizza.Structure.AddObject(new Ingridient("Тесто", 1, 1, new StorageConditions(-2, 2)));
+            pizza.Structure.AddObject(new Ingridient("Салями", 2, 1, new StorageConditions(-2, 2)));
+
+            pizza.CookingSequence.AddObject(new Processing(ProcessingType.Beat, 5, 1));
+            pizza.CookingSequence.AddObject(new Processing(ProcessingType.Fry, 7, 0.50));
+
+
+
+
+            Console.WriteLine(pizza);
+            Console.WriteLine("IngredientsCount - " + pizza.Structure.Count);
+            Console.WriteLine("IngredientsCost - " + pizza.Structure.IngredientsCost);
+            Console.WriteLine("ProcessingCount - " + pizza.CookingSequence.Count);
+            Console.WriteLine("ProcessingCost - " + pizza.CookingSequence.ProcessingCost);
+
+            foreach (Ingridient ing in pizza.Structure.Ingredients)
+            {
+                Console.WriteLine(ing);
+            }
+
+            foreach (Processing pr in pizza.CookingSequence.ProcessingMethods)
+            {
+                Console.WriteLine(pr);
+            }
+
+            Console.ReadKey();
 
             Console.ReadLine();
         }

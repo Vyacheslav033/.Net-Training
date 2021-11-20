@@ -7,7 +7,7 @@ namespace LunchroomLibrary
     /// </summary>
     public abstract class LunchroomProduct
     {
-        private string name;
+        protected string name;
 
         /// <summary>
         /// Инициализатор класса LunchroomProduct.
@@ -50,11 +50,18 @@ namespace LunchroomLibrary
         /// <summary>
         /// Стоимость приготовления.
         /// </summary>
-        public double CookingCost { get => CookingSequence.ProcessingCost + Structure.IngredientsCost; }
+        public double Cost { get => CookingSequence.ProcessingCost + Structure.IngredientsCost; }
 
-        public void Prepare()
+        /// <summary>
+        /// Наименование продукции.
+        /// </summary>
+        /// <returns> Наименование продукции. </returns>
+        public override string ToString()
         {
-
+            return $"{GetType().Name} ( " +
+                   $"Name: {name}, " +
+                   $"CookingTime: {CookingTime} minutes, " +
+                   $"Cost: {Cost}$ )";
         }
     }
 }

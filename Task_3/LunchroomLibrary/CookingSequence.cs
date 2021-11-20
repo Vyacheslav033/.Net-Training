@@ -8,6 +8,12 @@ namespace LunchroomLibrary
     /// </summary>
     public class CookingSequence : GenericList<Processing>
     {
+
+        /// <summary>
+        /// Способы обработки.
+        /// </summary>
+        public List<Processing> ProcessingMethods { get => List; }
+
         /// <summary>
         /// Стоимость обработки.
         /// </summary>

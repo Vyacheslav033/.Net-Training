@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace LunchroomLibrary
 {
@@ -8,12 +9,15 @@ namespace LunchroomLibrary
     public class Structure : GenericList<Ingridient>
     {
         /// <summary>
+        /// Ингридиенты.
+        /// </summary>
+        public List<Ingridient> Ingredients { get => List; }
+
+        /// <summary>
         /// Стоимость ингридиентов.
         /// </summary>
-        public double IngredientsCost 
-        {
-            get { return CalculateIngredientsCost(); }
-        }
+        public double IngredientsCost { get => CalculateIngredientsCost(); }
+
 
         /// <summary>
         /// Посчитать стоимость ингридиентов.

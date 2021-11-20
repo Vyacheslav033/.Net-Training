@@ -5,7 +5,7 @@ namespace LunchroomLibrary
     /// <summary>
     /// Ингридиент.
     /// </summary>
-    public abstract class Ingridient
+    public class Ingridient
     {
         protected string name;
         protected double cost;
@@ -104,10 +104,11 @@ namespace LunchroomLibrary
         /// <returns> Информация об ингридиенте. </returns>
         public override string ToString()
         {
-            return $"Name: {name}, " +
+            return $"{GetType().Name} ( " +
+                   $"Name: {name}, " +
                    $"Cost: {cost}, " +
                    $"Count: {count}, " +
-                   storageConditions.ToString();
+                   $"{storageConditions} )";
         }
     }
 }

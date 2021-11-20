@@ -5,7 +5,7 @@ namespace LunchroomLibrary
     /// <summary>
     /// Способ обработки продукта.
     /// </summary>
-    public abstract class Processing
+    public class Processing
     {
         private ProcessingType processingType;
         private double duration;
@@ -56,6 +56,44 @@ namespace LunchroomLibrary
         public void Process(ref Ingridient ingridient)
         {
 
+        }
+
+        /// <summary>
+        /// Сравнение способа обработки на равенство.
+        /// </summary>
+        /// <param name="obj"> Сравниваемый объект. </param>
+        /// <returns> Возвращает true в случае равенства объектов, в противном случае false. </returns>
+        public override bool Equals(object obj)
+        {
+            if ((obj != null) && (obj.GetType() == GetType()))
+            {
+                Processing p = (Processing)obj;
+
+                return (processingType == p.ProcessingType) && (duration == p.Duration) && (cost == p.Cost);
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Получить HashCode объекта Processing.
+        /// </summary>
+        /// <returns> HashCode объекта Processing. </returns>
+        public override int GetHashCode()
+        {
+            return processingType.GetHashCode() ^ duration.GetHashCode() ^ cost.GetHashCode();
+        }
+
+        /// <summary>
+        /// Информация об обработке.
+        /// </summary>
+        /// <returns> Информация об обработке. </returns>
+        public override string ToString()
+        {
+            return $"{GetType().Name} ( " +
+                   $"Type: {processingType}, " +
+                   $"Duration: {duration}, " +
+                   $"Cost: {cost} )";
         }
     }
 }

@@ -7,3 +7,4 @@ D:\C#\.Net-Training\Task_3\LunchroomConsoleApp\obj\Debug\LunchroomConsoleApp.csp
 D:\C#\.Net-Training\Task_3\LunchroomConsoleApp\obj\Debug\LunchroomConsoleApp.csproj.CoreCompileInputs.cache
 D:\C#\.Net-Training\Task_3\LunchroomConsoleApp\obj\Debug\LunchroomConsoleApp.exe
 D:\C#\.Net-Training\Task_3\LunchroomConsoleApp\obj\Debug\LunchroomConsoleApp.pdb
+D:\C#\.Net-Training\Task_3\LunchroomConsoleApp\obj\Debug\LunchroomConsoleApp.csproj.CopyComplete
