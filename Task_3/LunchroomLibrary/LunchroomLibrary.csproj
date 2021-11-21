@@ -51,7 +51,7 @@
     <Compile Include="Ingridient.cs" />
     <Compile Include="Lunchroom\Manager.cs" />
     <Compile Include="Lunchroom\Order.cs" />
-    <Compile Include="OrderedProducts.cs" />
+    <Compile Include="Lunchroom\OrderedProducts.cs" />
     <Compile Include="ProcessingMethods\Processing.cs" />
     <Compile Include="ProcessingMethods\ProcessingType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

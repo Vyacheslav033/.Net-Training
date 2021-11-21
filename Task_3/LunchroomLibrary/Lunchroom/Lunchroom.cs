@@ -11,5 +11,8 @@ namespace LunchroomLibrary
     /// </summary>
     public class Lunchroom
     {
+        public Chef Chef { get; }
+
+        public Manager Manager { get; }
     }
 }

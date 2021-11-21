@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace LunchroomLibrary
 {
@@ -11,6 +10,6 @@ namespace LunchroomLibrary
         /// <summary>
         /// Продукция.
         /// </summary>
-        public List<LunchroomProduct> ProcessingMethods { get => List; }
+        public List<LunchroomProduct> Products { get => List; }
     }
 }
