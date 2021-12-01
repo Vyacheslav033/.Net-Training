@@ -54,6 +54,10 @@
       <Project>{bd09498e-e507-4f0b-ae32-03579a9ea92f}</Project>
       <Name>LunchroomLibrary</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SerializationLibrary\SerializationLibrary.csproj">
+      <Project>{6a28aa5c-e33e-4de4-ab8f-e9f465eab33e}</Project>
+      <Name>SerializationLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

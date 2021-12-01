@@ -7,7 +7,7 @@ namespace LunchroomLibrary
     /// Обобщённый список.
     /// </summary>
     /// <typeparam name="T"> Тип объектов списка. </typeparam>
-    public class GenericList<T>
+    public abstract class GenericList<T>
     {
         protected List<T> list;
 
@@ -18,11 +18,6 @@ namespace LunchroomLibrary
         {
             list = new List<T>();
         }
-
-        /// <summary>
-        /// Список объектов.
-        /// </summary>
-        public List<T> List { get => list; }
 
         /// <summary>
         /// Количество объектов.
@@ -60,7 +55,7 @@ namespace LunchroomLibrary
         /// Добавить объект.
         /// </summary>
         /// <param name="obj"> Объект. </param>
-        public void AddObject(T obj)
+        public virtual void AddObject(T obj)
         {
             if (obj == null)
             {

@@ -7,4 +7,9 @@ D:\C#\.Net-Training\Task_3\LunchroomConsoleApp\obj\Debug\LunchroomConsoleApp.csp
 D:\C#\.Net-Training\Task_3\LunchroomConsoleApp\obj\Debug\LunchroomConsoleApp.csproj.CoreCompileInputs.cache
 D:\C#\.Net-Training\Task_3\LunchroomConsoleApp\obj\Debug\LunchroomConsoleApp.exe
 D:\C#\.Net-Training\Task_3\LunchroomConsoleApp\obj\Debug\LunchroomConsoleApp.pdb
+D:\C#\.Net-Training\Task_3\LunchroomConsoleApp\bin\Debug\SerializationLibrary.dll
+D:\C#\.Net-Training\Task_3\LunchroomConsoleApp\bin\Debug\SerializationLibrary.pdb
+D:\C#\.Net-Training\Task_3\LunchroomConsoleApp\bin\Debug\SerializationLibrary.dll.config
+D:\C#\.Net-Training\Task_3\LunchroomConsoleApp\bin\Debug\Newtonsoft.Json.dll
+D:\C#\.Net-Training\Task_3\LunchroomConsoleApp\bin\Debug\Newtonsoft.Json.xml
 D:\C#\.Net-Training\Task_3\LunchroomConsoleApp\obj\Debug\LunchroomConsoleApp.csproj.CopyComplete

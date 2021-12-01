@@ -23,8 +23,7 @@ namespace LunchroomLibrary
 
             this.name = name;
 
-            Structure = new Structure();
-            CookingSequence = new CookingSequence();
+            Recipe = new Recipe();
         }
 
         /// <summary>
@@ -33,29 +32,25 @@ namespace LunchroomLibrary
         public string Name { get => name; }
 
         /// <summary>
-        /// Состав.
+        /// Рецепт.
         /// </summary>
-        public Structure Structure { get; }
+        public Recipe Recipe { get; set; }
 
-        /// <summary>
-        /// Последовательность приготовления.
-        /// </summary>
-        public CookingSequence CookingSequence { get; }
 
         /// <summary>
         /// Время приготовления.
         /// </summary>
-        public double CookingTime { get => CookingSequence.ProcessingTime; }
+        public double CookingTime { get => Recipe.ProcessingMethods.ProcessingTime; }
 
         /// <summary>
         /// Стоимость приготовления.
         /// </summary>
-        public double Cost { get => CookingSequence.ProcessingCost + Structure.IngredientsCost; }
+        public double Cost { get => Recipe.ProcessingMethods.ProcessingCost + Recipe.Structure.IngredientsCost; }
 
         /// <summary>
-        /// Наименование продукции.
+        /// Иформация о продукции.
         /// </summary>
-        /// <returns> Наименование продукции. </returns>
+        /// <returns> Иформация о продукции. </returns>
         public override string ToString()
         {
             return $"{GetType().Name} ( " +

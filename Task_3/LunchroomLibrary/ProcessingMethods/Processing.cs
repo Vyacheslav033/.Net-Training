@@ -53,7 +53,7 @@ namespace LunchroomLibrary
         /// Обработать ингридиент.
         /// </summary>
         /// <param name="ingridient"> Ингридиент. </param>
-        public void Process(ref Ingridient ingridient)
+        public void Process(Ingridient ingridient)
         {
 
         }

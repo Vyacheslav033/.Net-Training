@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CookingSequence.cs" />
+    <Compile Include="ProcessingMethods\ProcessingMethods.cs" />
     <Compile Include="Lunchroom\Chef.cs" />
     <Compile Include="Lunchroom\Lunchroom.cs" />
     <Compile Include="LunchroomProducts\Dish.cs" />
@@ -54,10 +55,11 @@
     <Compile Include="Lunchroom\OrderedProducts.cs" />
     <Compile Include="ProcessingMethods\Processing.cs" />
     <Compile Include="ProcessingMethods\ProcessingType.cs" />
+    <Compile Include="ProductionCapacity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recipe.cs" />
     <Compile Include="StorageConditions.cs" />
     <Compile Include="Structure.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

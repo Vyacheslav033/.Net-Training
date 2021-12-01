@@ -6,54 +6,25 @@ namespace LunchroomLibrary
     /// <summary>
     /// Последовательность приготовления.
     /// </summary>
-    public class CookingSequence : GenericList<Processing>
+    public class CookingSequence : GenericList<object>
     {
-
         /// <summary>
-        /// Способы обработки.
+        /// Добавить ингридиент или способ обработки.
         /// </summary>
-        public List<Processing> ProcessingMethods { get => List; }
-
-        /// <summary>
-        /// Стоимость обработки.
-        /// </summary>
-        public double ProcessingCost { get => CalculateProcessingCost(); }
-
-        /// <summary>
-        /// Время обработки.
-        /// </summary>
-        public double ProcessingTime { get => CalculateProcessingTime(); }
-
-        /// <summary>
-        /// Посчитать стоимость обработки.
-        /// </summary>
-        /// <returns> Возвращает стоимость обработки. </returns>
-        private double CalculateProcessingCost()
+        /// <param name="obj"> Объект. </param>
+        public override void AddObject(object obj)
         {
-            double cost = 0;
-
-            foreach (Processing processing in list)
+            if (obj == null)
             {
-                cost += processing.Cost;
+                throw new ArgumentNullException($"{this.GetType().Name} не был передан.");
             }
 
-            return cost;
-        }
-
-        /// <summary>
-        /// Посчитать время обработки.
-        /// </summary>
-        /// <returns> Возвращает время обработки. </returns>
-        private double CalculateProcessingTime()
-        {
-            double time = 0;
-
-            foreach (Processing processing in list)
+            if ( !(obj is Ingridient) && !(obj is Processing) )
             {
-                time += processing.Duration;
+                throw new ArgumentNullException($"Последовательность приготовления не может содержать переданный объект.");
             }
 
-            return time;
+            list.Add(obj);
         }
     }
 }

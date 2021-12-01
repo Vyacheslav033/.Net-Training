@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LunchroomLibrary;
+using SerializationLibrary;
 
 namespace LunchroomConsoleApp
 {
@@ -12,33 +13,36 @@ namespace LunchroomConsoleApp
         static void Main(string[] args)
         {
 
+            var list = new List<LunchroomProduct>();
+           
+
+            var dish = new Dish("Борщь");
+
+            dish.Recipe.AddIngredient(new Ingridient("Тесто", 1, 1, new StorageConditions(-2, 2)));
+
             var pizza = new Dish("Пицца");
 
-            Console.WriteLine();
+            pizza.Recipe.AddIngredient(new Ingridient("Тесто", 1, 1, new StorageConditions(-2, 2)));
+            pizza.Recipe.AddIngredient(new Ingridient("Салями", 2, 1, new StorageConditions(-2, 2)));
+            pizza.Recipe.AddProcessing(new Processing(ProcessingType.Beat, 5, 1));
+            pizza.Recipe.AddIngredient(new Ingridient("Сыр", 2, 1, new StorageConditions(-2, 2)));
+            pizza.Recipe.AddProcessing(new Processing(ProcessingType.Fry, 7, 0.50));
 
-            pizza.Structure.AddObject(new Ingridient("Тесто", 1, 1, new StorageConditions(-2, 2)));
-            pizza.Structure.AddObject(new Ingridient("Салями", 2, 1, new StorageConditions(-2, 2)));
+            var chef = new Chef();
 
-            pizza.CookingSequence.AddObject(new Processing(ProcessingType.Beat, 5, 1));
-            pizza.CookingSequence.AddObject(new Processing(ProcessingType.Fry, 7, 0.50));
+            chef.Prepare(pizza);
 
-            Console.WriteLine(pizza);
-            Console.WriteLine("IngredientsCount - " + pizza.Structure.Count);
-            Console.WriteLine("IngredientsCost - " + pizza.Structure.IngredientsCost);
-            Console.WriteLine("ProcessingCount - " + pizza.CookingSequence.Count);
-            Console.WriteLine("ProcessingCost - " + pizza.CookingSequence.ProcessingCost);
+            list.Add(dish);
+            list.Add(pizza);
 
-            foreach (Ingridient ing in pizza.Structure.Ingredients)
+            JsonFileSerializer.Serialize("dishes.txt", list);
+
+            var list2 = JsonFileSerializer.Deserialize<Dish>("dishes.txt");
+
+            foreach (Dish product in list2)
             {
-                Console.WriteLine(ing);
+                Console.WriteLine(product);
             }
-
-            foreach (Processing pr in pizza.CookingSequence.ProcessingMethods)
-            {
-                Console.WriteLine(pr);
-            }
-
-            Console.ReadKey();
 
             Console.ReadLine();
         }

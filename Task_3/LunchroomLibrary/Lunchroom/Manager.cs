@@ -36,7 +36,7 @@ namespace LunchroomLibrary
                     nameof(products));
             }
 
-            orders.Add(new Order(account, products));
+            Orders.Add(new Order(account, products));
             account++;
         }
     }

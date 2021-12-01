@@ -1,0 +1,12 @@
+D:\C#\.Net-Training\Task_3\SerializationLibrary\bin\Debug\SerializationLibrary.dll
+D:\C#\.Net-Training\Task_3\SerializationLibrary\bin\Debug\SerializationLibrary.pdb
+D:\C#\.Net-Training\Task_3\SerializationLibrary\bin\Debug\LunchroomLibrary.dll
+D:\C#\.Net-Training\Task_3\SerializationLibrary\bin\Debug\LunchroomLibrary.pdb
+D:\C#\.Net-Training\Task_3\SerializationLibrary\obj\Debug\SerializationLibrary.csproj.AssemblyReference.cache
+D:\C#\.Net-Training\Task_3\SerializationLibrary\obj\Debug\SerializationLibrary.csproj.CoreCompileInputs.cache
+D:\C#\.Net-Training\Task_3\SerializationLibrary\obj\Debug\SerializationLibrary.dll
+D:\C#\.Net-Training\Task_3\SerializationLibrary\obj\Debug\SerializationLibrary.pdb
+D:\C#\.Net-Training\Task_3\SerializationLibrary\bin\Debug\SerializationLibrary.dll.config
+D:\C#\.Net-Training\Task_3\SerializationLibrary\bin\Debug\Newtonsoft.Json.dll
+D:\C#\.Net-Training\Task_3\SerializationLibrary\bin\Debug\Newtonsoft.Json.xml
+D:\C#\.Net-Training\Task_3\SerializationLibrary\obj\Debug\SerializationLibrary.csproj.CopyComplete

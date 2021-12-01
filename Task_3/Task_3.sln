@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LunchroomLibrary", "Lunchro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LunchroomConsoleApp", "LunchroomConsoleApp\LunchroomConsoleApp.csproj", "{875F8707-A38D-459A-AFA2-30EA2B77D4A8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerializationLibrary", "SerializationLibrary\SerializationLibrary.csproj", "{6A28AA5C-E33E-4DE4-AB8F-E9F465EAB33E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{875F8707-A38D-459A-AFA2-30EA2B77D4A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{875F8707-A38D-459A-AFA2-30EA2B77D4A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{875F8707-A38D-459A-AFA2-30EA2B77D4A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A28AA5C-E33E-4DE4-AB8F-E9F465EAB33E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A28AA5C-E33E-4DE4-AB8F-E9F465EAB33E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A28AA5C-E33E-4DE4-AB8F-E9F465EAB33E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A28AA5C-E33E-4DE4-AB8F-E9F465EAB33E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

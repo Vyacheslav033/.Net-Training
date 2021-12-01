@@ -1,0 +1,1 @@
+{"Name":"Борщь","Recipe":{"Structure":{"IngredientsCost":1.0,"Count":1},"ProcessingMethods":{"ProcessingCost":0.0,"ProcessingTime":0.0,"Count":0},"CookingSequence":{"Count":1}},"CookingTime":0.0,"Cost":1.0}

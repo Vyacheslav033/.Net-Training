@@ -10,6 +10,6 @@ namespace LunchroomLibrary
         /// <summary>
         /// Продукция.
         /// </summary>
-        public List<LunchroomProduct> Products { get => List; }
+        public List<LunchroomProduct> Products { get => list; }
     }
 }
